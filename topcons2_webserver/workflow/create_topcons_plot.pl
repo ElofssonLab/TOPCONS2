@@ -237,7 +237,8 @@ sub mk_plot
     print OUT "set autoscale xfix\n";
     print OUT "set ter png enh interlace size 2400,1680 font 'Nimbus,40'\n";
     print OUT "set y2label \'{/Symbol D}G (kcal/mol)                                             \' tc lt 3\n";
-    print OUT "set ytics scale 1,0.5 nomirror \(\"0\" 0, \"5\" 5, \"10\" 10, \"15\" 15, \"20\" 20, \"25\" 25, \"SPOCTOPUS\" 30.5 0, \"SCAMPI\" 33.5 0, \"PolyPhobius\" 36.5 0, \"Philius\" 39.5 0, \"OCTOPUS\" 42.5 0, \"TOPCONS\" 45.5 0\)\n";
+    #print OUT "set ytics scale 1,0.5 nomirror \(\"0\" 0, \"5\" 5, \"10\" 10, \"15\" 15, \"20\" 20, \"25\" 25, \"SPOCTOPUS\" 30.5 0, \"SCAMPI\" 33.5 0, \"PolyPhobius\" 36.5 0, \"Philius\" 39.5 0, \"OCTOPUS\" 42.5 0, \"TOPCONS\" 45.5 0\)\n";
+    print OUT "set ytics scale 1,0.5 nomirror \(\"SPOCTOPUS\" 30.5 0, \"SCAMPI\" 33.5 0, \"PolyPhobius\" 36.5 0, \"Philius\" 39.5 0, \"OCTOPUS\" 42.5 0, \"TOPCONS\" 45.5 0\)\n";
      
     if ($DG_tick_max-$DG_tick_min < 10) 
     {
