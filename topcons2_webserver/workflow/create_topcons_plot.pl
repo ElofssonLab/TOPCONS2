@@ -39,6 +39,12 @@ sub ReadSeq#{{{
     return $seq;
 }#}}}
 
+$topo{'OCTOPUS'} = ' ';
+$topo{'PHILIUS'} = ' ';
+$topo{'CONSENSUS_TOPCONS'} = ' ';
+$topo{'SPOCTOPUS'} = ' ';
+$topo{'SCAMPI'} = ' ';
+$topo{'POLYPHOBIUS'} = ' ';
 if(-e $octopus_res_file)
 {
     open OCTOPUS, $octopus_res_file;
@@ -87,7 +93,7 @@ if(-e $polyphobius_res_file)
         {
             my $polyphobius_res=$_;
             chomp $polyphobius_res;
-            $topo{'PolyPhobius'} = $polyphobius_res;
+            $topo{'POLYPHOBIUS'} = $polyphobius_res;
         }
     }
     close POLYPHOBIUS;
