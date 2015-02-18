@@ -40,11 +40,11 @@ sub ReadSeq#{{{
 }#}}}
 
 $topo{'OCTOPUS'} = ' ';
-$topo{'PHILIUS'} = ' ';
+$topo{'Philius'} = ' ';
 $topo{'CONSENSUS_TOPCONS'} = ' ';
 $topo{'SPOCTOPUS'} = ' ';
 $topo{'SCAMPI'} = ' ';
-$topo{'POLYPHOBIUS'} = ' ';
+$topo{'PolyPhobius'} = ' ';
 if(-e $octopus_res_file)
 {
     open OCTOPUS, $octopus_res_file;
@@ -73,14 +73,14 @@ if(-e $philius_res_file)
         {
             my $philius_res=$_;
             chomp $philius_res;
-            $topo{'PHILIUS'} = $philius_res;
+            $topo{'Philius'} = $philius_res;
         }
     }
     close PHILIUS;
 }
 else
 {
-    $topo{'PHILIUS'} = ' ';
+    $topo{'Philius'} = ' ';
 }
 
 
@@ -93,14 +93,14 @@ if(-e $polyphobius_res_file)
         {
             my $polyphobius_res=$_;
             chomp $polyphobius_res;
-            $topo{'POLYPHOBIUS'} = $polyphobius_res;
+            $topo{'PolyPhobius'} = $polyphobius_res;
         }
     }
     close POLYPHOBIUS;
 }
 else
 {
-    $topo{'POLYPHOBIUS'} = ' ';
+    $topo{'PolyPhobius'} = ' ';
 }
 
 if(-e $scampi_res_file)
@@ -223,7 +223,7 @@ sub mk_plot
     }
     close TMP;
     close DG;
-    #unlink ($DG_res_file);
+    unlink ($DG_res_file);
 
     my $DG_min=`$sort -gk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
     my $DG_max=`$sort -grk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
