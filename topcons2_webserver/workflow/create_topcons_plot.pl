@@ -223,8 +223,8 @@ sub mk_plot
     }
     close TMP;
     close DG;
-#     unlink ($DG_res_file);
-    unlink ($DG_res_used);
+    unlink ($DG_res_file);
+#    unlink ($DG_res_used);
 
     my $DG_min=`$sort -gk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
     my $DG_max=`$sort -grk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
