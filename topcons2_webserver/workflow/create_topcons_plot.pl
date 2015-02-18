@@ -223,7 +223,8 @@ sub mk_plot
     }
     close TMP;
     close DG;
-    unlink ($DG_res_file);
+#     unlink ($DG_res_file);
+    unlink ($DG_res_used);
 
     my $DG_min=`$sort -gk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
     my $DG_max=`$sort -grk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
@@ -317,7 +318,7 @@ sub mk_plot
     print OUT "exit\n";
     close(OUT);
     `$gnuplot $whole_img_gnu_file`;
-    `$convert -scale 600x420 $whole_img_large_image $whole_img_small_image`;
+    `$convert -scale 580 $whole_img_large_image $whole_img_small_image`;
 }
 
 sub mk_topcons_plot 
@@ -415,7 +416,7 @@ sub mk_topcons_plot
     print OUT "exit\n";
     close(OUT);
     `$gnuplot $topcons_gnu_file`;
-    `$convert -scale 600x210 $topcons_large_image $topcons_small_image`;
+    `$convert -scale 580 $topcons_large_image $topcons_small_image`;
 }
 
 sub print_seq_topo {#{{{
