@@ -1,0 +1,18 @@
+###############################################################################
+################### Copyright 2008 University of Washington ###################
+###############################################################################
+
+#ifndef COMMON_PARAMS_TEST1
+#define COMMON_PARAMS_TEST1
+
+#define WEIGHT_aa		1.0
+#define WEIGHT_changeState	1.0
+#define WEIGHT_emitClass	1.0
+#define WEIGHT_lengthClass	1.0
+#define WEIGHT_state		1.0
+#define WEIGHT_stateCountDown	1.0
+#define WEIGHT_topoBit          0.0
+#define WEIGHT_topoVE		1.0
+
+#endif
+

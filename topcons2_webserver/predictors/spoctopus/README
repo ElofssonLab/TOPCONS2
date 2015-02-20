@@ -1,0 +1,96 @@
+General information:
+OCTOPUS MAY BE USED FOR THE PURPOSE OF ACADEMIC RESEARCH ONLY.
+
+Reference:
+If OCTOPUS is used in any scientific work, please cite:
+Viklund H, Elofsson A.
+OCTOPUS:Improving topology prediction by two-track ANN-based preference scores and an extended topological grammar.
+Bioinformatics. 2008
+
+Support:
+Please email arne@bioinfo.se adding 'OCTOPUS support' to the header.
+
+
+To install SPOCTOPUS and OCTOPUS (unless you've already installed it as part if the TOPCONS-package)
+you'll need cmake, version 2.6 or higher. Cmake can be downloaded from http://www.cmake.org/HTML/Download.html .
+
+For installation of SPOCTOPUS and OCTOPUS:
+
+mkdir /tmp/build
+cd /tmp/build
+cmake -D TARGETS="spoctopus" -D CMAKE_PREFIX_PATH=/path/to/modhmm -D CMAKE_INSTALL_PREFIX=/my/install/dir  /this/source/dir
+make
+make install
+
+
+
+Running OCTOPUS
+
+Starting from fasta sequence input:
+1. Prepare a directory with files fasta format, one sequence per file including a row with the sequence name in the beginning
+	Example:
+		$ cat FASTA_FILES/1a91A.fa
+		>1a91A
+		MENLNMDLLYMAAAVMMGLAAIGAAIGIGILGGKFLEGAARQPDLIPLLRTQFFIVMGLV
+		DAIPMIAVGLGLYVMFAVA
+	
+		$ cat FASTA_FILES/1afoA.fa
+		>1afoA
+		MYGKIIFVLLLSAIVSISASSTTGVAMHTSTSSSVTKSYISSQTNDTHKRDTYAATPRAH
+		EVSEISVRTVYPPEEETGERVQLAHHFSEPEITLIIFGVMAGVIGTILLISYGIRRLIKK
+		SPSDVKPLPSPDTDVPLSSVEIENPETSDQ
+		
+2. Prepare a file containing the names of the sequences that are to be run (without file name extensions).
+	Example:
+		$ cat protnamefile.txt
+		1a91A
+		1afoA
+	
+3. Prepare a directory for the predicted topology files
+	Example:
+		$ mkdir PREDICTED_TOPOLOGIES
+
+4. Run BLOCTOPUS: BLOCTOPUS.sh <protnamefile> <fastadir> <outdir> <blastall-executable> <blastpgp-executable> <database> <makemat-executable>
+        Example:
+		$ ./OCTOPUS_single.sh protnamefile.txt FASTA_FILES/ PREDICTED_TOPOLOGIES/ /bin/blastall /bin/blastpgp /tmp/uniref90 /bin/makemat
+	(This example presupposes the existence of the files /tmp/uniref90.phr, /tmp/uniref90.pin and 
+	/tmp/uniref90.psq, created by the formatdb executable available in the blast package)
+
+Using sequence profile input:
+Running OCTOPUS in sequence profile mode is done in three steps.
+1. Create a multiple sequence alignment with blast (using the -m 6 output format)
+	This can be done using run_blast.sh, which runs blast with an e-value cutoff of 1.e-5
+2. Convert the blast alignments to the modhmm profile format.
+	msa2prf.sh does this given that the blast alignments are in the -m 6 format.
+3. Create check files with psiblast, use the -C option to save scheck files (with the extension .chk).
+   Then run makemat to create .mtx files from the check files.
+	This can be done using run_psiblast.sh, which runs psiblast for two iterations with an e-value cutoff of 1.e-5
+	and saves the checkfiles after one iteration, then runs makemat.
+4. Convert the .mtx files to the modhmm profile format.
+	mtx2prf.sh does this
+5. Run OCTOPUS.sh:
+	Example:
+		$ ./OCTOPUS.sh <protnamefile> <pssm prf dir> <raw prf dir> <outdir>  
+	
+	protnamefile and outdir are the same as for OCTOPUS_single, while pssm prf dir is
+	a directory containing the sequence profiles created using psiblast, makemat and mtx2prf.sh, 
+	while the raw prf files are the profiles created using blast and msa2prf.sh (both types should
+	have the extension .prf).
+
+
+Running SPOCTOPUS
+
+1. Prepare profile files as per the instructions for OCTOPUS above (or simply run BLOCTOPUS.sh with the '-P' flag
+2. Run SPOCTOPUS.sh:
+	Example:
+		$ ./SPOCTOPUS.sh <protnamefile> <pssm prf dir> <raw prf dir> <outdir>
+ 
+
+
+(SP)OCTOPUS output
+The predicted topology of each sequence is stored in the output directory in a file called <sequencename>.top.
+Each residue is represented by an M for membrane, an i for inside or an o for outside.
+BLAST and PSIBLAST based profiles and the neural network output files are stored in subdirectories to the given output directory called
+<outdir>/RAW_PRF_FILES/<sequencename>.prf and <outdir>/PSSM_PRF_FILES/<sequencename>.prf and <outdir>/NN_PRF_FILES/<sequencename>.prf
+respectively.
+

@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+#
+#     jPhobius 1.05 a java implementation of Phobius
+#     a hidden Markov Model capable of predicting both Transmembrane Topology
+#     and Signal peptides
+#
+#     (c) 2004 Lukas Kall, Anders Krogh, Erik Sonnhammer.
+#
+#     Please cite:
+#
+#     Lukas Käll, Anders Krogh and Erik L. L. Sonnhammer.
+#     A Combined Transmembrane Topology and Signal Peptide Prediction Method.
+#     Journal of Molecular Biology, 338(5):1027-1036, May 2004.
+#
+#     The program is distributed under GPL, see http://gnu.org for details
+#
+#     Script $Revision: 1.2 $
+#
+use FindBin;
+my $JPHOBIUS_DIR = "$FindBin::RealBin";
+my @jars =         (<$JPHOBIUS_DIR/*.jar>);
+my $CP =           join ":",@jars;
+$CP .=             ":$JPHOBIUS_DIR/";
+my $CMD =          "java -cp $CP se.ki.cgb.hmmdecode.Phobius " . (join ' ', @ARGV);
+exec $CMD

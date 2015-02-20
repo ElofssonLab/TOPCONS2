@@ -1,0 +1,1 @@
+HMMS/NNZHMM_io_hairpin.hmg

@@ -1,0 +1,59 @@
+homologhmm
+A hidden Markov Model sequence and alignment decoder 
+
+(c) 2005 Lukas Kall.
+
+The program is distributed under GPL, see http://gnu.org for details
+The program uses the BioJava (http://biojava.org) which is distributed under LGPL
+
+and 
+
+jPhobius a java implementation of Phobius
+a hidden Markov Model capable of predicting both Transmembrane Topology
+and Signal peptides
+
+(c) 2004 Lukas Kall, Anders Krogh, Erik Sonnhammer.
+
+Please cite:
+
+    Lukas Käll, Anders Krogh and Erik Sonnhammer.
+    An HMM posterior decoder for sequence feature prediction that includes homology information
+    Bioinformatics, 21 (Suppl 1):i251-i257, June 2005.
+
+or
+
+    Lukas Käll, Anders Krogh and Erik L. L. Sonnhammer.
+    A Combined Transmembrane Topology and Signal Peptide Prediction Method.
+    Journal of Molecular Biology, 338(5):1027-1036, May 2004.
+
+
+
+PREREQUISITES
+=============
+
+Unix/Linux
+Perl 5.6 or later
+Java 1.5.0 or later
+To retrieve homologs with the script blastget BioPerl(bioperl.org) is needed.
+If jPhobius is to be used: The phobius.model file from your licensed copy of
+phobius 
+
+    
+INSTALL
+=======
+
+Change (and create) directory to the directory where you want to install homologhmm
+(e.g. /usr/local/share/jphobius ), and unpack the tar file with the command:
+
+cat /path_to_tarfile/jphobius.tar.gz | tar xz
+
+make a link from the file jphobius and homologhmm to a directory included in your standard
+path.
+
+ln -s /usr/local/share/jphobius/jphobius /usr/local/bin/phobius
+ln -s /usr/local/share/jphobius/homologhmm /usr/local/bin/homologhmm
+
+Make sure that java is available in the standard path
+
+NOTE: To vitalize jPhobius please copy the file phobius model into 
+the homologhmm directory (/usr/local/share/jphobius)

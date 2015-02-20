@@ -1,0 +1,20 @@
+###############################################################################
+################### Copyright 2008 University of Washington ###################
+###############################################################################
+
+#ifndef COMMON_PARAMS_TEST2
+#define COMMON_PARAMS_TEST2
+
+#define WEIGHT_aa		0.0
+#define WEIGHT_changeState	0.0
+#define WEIGHT_emitClass	1.0
+#define WEIGHT_lengthClass	1.0
+#define WEIGHT_state		0.0
+#define WEIGHT_stateCountDown	0.0
+#define WEIGHT_topoBit          0.0
+#define WEIGHT_topoVE		1.0
+
+#define CONSTRAINED_PROTEIN_TYPE  2
+
+#endif
+

@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/xsltproc ../modhmm/share/modhmm/xslt/xml2top.xsl -

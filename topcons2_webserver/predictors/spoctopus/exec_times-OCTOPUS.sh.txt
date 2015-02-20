@@ -1,0 +1,23 @@
+echo 15:01:03 072148537 Start of OCTOPUS.sh
+15:01:03 106824031 Split seqname file
+15:01:03 116826849 run_OCTOPUS.sh
+15:01:03 132830620 Start of run_OCTOPUS.sh
+15:01:03 148264055 Make input file for MLGR
+15:01:03 236527933 Run networks for MLGR
+15:01:03 384950016 make NN-profiles
+15:01:03 474536139 make io inputfiles
+15:01:03 532907374 run io net
+15:01:03 595132117 make NN-profiles
+15:01:03 614806541 make second layer input for MG
+15:01:03 681955440 run second layer nets
+15:01:03 723742356 make NN-profiles
+15:01:03 763518988 make HMM-profiles
+15:01:03 807925800 make 2-alpha-files
+15:01:03 820002177 run HMM
+15:01:03 932411828 convert modhmmxml to top-files
+15:01:03 956418293 lonely revise
+15:01:03 969897755 rerun HMM
+15:01:04 020530748 convert modhmmxml to top-files
+15:01:04 043381203 post process preds
+15:01:04 052211784 Back to OCTOPUS: copy result files to outdir
+15:01:04 061080600 Clean up

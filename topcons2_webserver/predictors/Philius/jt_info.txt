@@ -1,0 +1,109 @@
+===============================
+   P1 partition information: JT_weight = 1.000000
+=== Clique Information ===
+Number of cliques = 1
+== Clique number: 0, root/right-interface clique, root/right-interface clique, leaf
+Clique information: 56 packed bits, 2 unsigned words (0 splits), weight = 6.085219, jt_weight = 1.000000
+24 Nodes: changeState(0)[2],topoChange(0)[2],topo10(0)[10],state(0)[30],spBit(0)[2],iNumTM(0)[4],stateCountDown(0)[26],emitClass(0)[16],lengthClass(0)[16],topoClass(0)[5],stateLabel(0)[10],oc(0)[2],aa(0)[21],topoVE(0)[2],changeState(1)[2],topoChange(1)[2],topo10(1)[10],state(1)[30],spBit(1)[2],iNumTM(1)[4],stateCountDown(1)[26],lengthClass(1)[16],topoClass(1)[5],topoVE(1)[2]
+24 Assigned: changeState(0),topoChange(0),topo10(0),state(0),spBit(0),iNumTM(0),stateCountDown(0),emitClass(0),lengthClass(0),topoClass(0),stateLabel(0),oc(0),aa(0),topoVE(0),changeState(1),topoChange(1),topo10(1),state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1),topoVE(1)
+24 Assigned Sorted: stateLabel(0)[10],state(0)[30],oc(0)[2],emitClass(0)[16],aa(0)[21],topoChange(0)[2],topoClass(0)[5],topo10(0)[10],topoVE(0)[2],changeState(0)[2],lengthClass(0)[16],stateCountDown(0)[26],changeState(1)[2],state(1)[30],topoClass(1)[5],topoChange(1)[2],topo10(1)[10],topoVE(1)[2],spBit(0)[2],iNumTM(0)[4],spBit(1)[2],iNumTM(1)[4],lengthClass(1)[16],stateCountDown(1)[26]
+24 Dispositions: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+24 Assigned Prob: changeState(0),topoChange(0),topo10(0),state(0),spBit(0),iNumTM(0),stateCountDown(0),emitClass(0),lengthClass(0),topoClass(0),stateLabel(0),oc(0),aa(0),topoVE(0),changeState(1),topoChange(1),topo10(1),state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1),topoVE(1)
+0 Cum Assigned Prob: 
+0 Union Incomming Seps: 
+0 Unassigned Iterated: 
+0 Cumulative Unassigned: 
+19 Hidden/Hashable: changeState(0)[2],topoChange(0)[2],topo10(0)[10],state(0)[30],spBit(0)[2],iNumTM(0)[4],stateCountDown(0)[26],emitClass(0)[16],lengthClass(0)[16],topoClass(0)[5],changeState(1)[2],topoChange(1)[2],topo10(1)[10],state(1)[30],spBit(1)[2],iNumTM(1)[4],stateCountDown(1)[26],lengthClass(1)[16],topoClass(1)[5]
+0 Clique Neighbors: 
+0 Clique Children: 
+0 Receive Seps: 
+0 incomming VE Separators
+Send Sep: -1
+
+=== Separator Information ===
+Number of separators = 0
+
+
+===============================
+   Co partition information: JT_weight = 1.000000
+=== Clique Information ===
+Number of cliques = 1
+== Clique number: 0, root/right-interface clique, root/right-interface clique, leaf/left-interface clique
+Clique information: 50 packed bits, 2 unsigned words (0 splits), weight = 6.988309, jt_weight = 1.000000
+20 Nodes: state(1)[30],spBit(1)[2],iNumTM(1)[4],stateCountDown(1)[26],emitClass(1)[16],lengthClass(1)[16],topoClass(1)[5],stateLabel(1)[10],oc(1)[2],aa(1)[21],changeState(2)[2],topoChange(2)[2],topo10(2)[10],state(2)[30],spBit(2)[2],iNumTM(2)[4],stateCountDown(2)[26],lengthClass(2)[16],topoClass(2)[5],topoVE(2)[2]
+16 Assigned: emitClass(1),lengthClass(1),topoClass(1),stateLabel(1),oc(1),aa(1),changeState(2),topoChange(2),topo10(2),state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2),topoVE(2)
+14 Assigned Sorted: stateLabel(1)[10],oc(1)[2],emitClass(1)[16],aa(1)[21],changeState(2)[2],state(2)[30],topoClass(2)[5],topoChange(2)[2],topo10(2)[10],topoVE(2)[2],spBit(2)[2],iNumTM(2)[4],lengthClass(2)[16],stateCountDown(2)[26]
+14 Dispositions: 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+14 Assigned Prob: emitClass(1),stateLabel(1),oc(1),aa(1),changeState(2),topoChange(2),topo10(2),state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2),topoVE(2)
+24 Cum Assigned Prob: changeState(0),topoChange(0),topo10(0),state(0),spBit(0),iNumTM(0),stateCountDown(0),emitClass(0),lengthClass(0),topoClass(0),stateLabel(0),oc(0),aa(0),topoVE(0),changeState(1),topoChange(1),topo10(1),state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1),topoVE(1)
+6 Union Incomming Seps: state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1)
+0 Unassigned Iterated: 
+0 Cumulative Unassigned: 
+16 Hidden/Hashable: state(1)[30],spBit(1)[2],iNumTM(1)[4],stateCountDown(1)[26],emitClass(1)[16],lengthClass(1)[16],topoClass(1)[5],changeState(2)[2],topoChange(2)[2],topo10(2)[10],state(2)[30],spBit(2)[2],iNumTM(2)[4],stateCountDown(2)[26],lengthClass(2)[16],topoClass(2)[5]
+0 Clique Neighbors: 
+0 Clique Children: 
+1 Receive Seps: 0,
+0 incomming VE Separators
+Send Sep: -1
+
+=== Separator Information ===
+Number of separators = 1
+== Separator number: 0
+Separator information: 0 acc packed bits (0 words, 0 splits), 20 rem packed bits (1 words, 0 splits)
+6 Nodes: state(1)[30],spBit(1)[2],iNumTM(1)[4],stateCountDown(1)[26],lengthClass(1)[16],topoClass(1)[5]
+0 Acc Inter: 
+0 Hid Acc Inter: 
+6 remainder: state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1)
+6 hRemainder: state(1),spBit(1),iNumTM(1),stateCountDown(1),lengthClass(1),topoClass(1)
+
+
+===============================
+   E1 partition information: JT_weight = 1.000000
+=== Clique Information ===
+Number of cliques = 1
+== Clique number: 0, root/right-interface clique, root clique, leaf/left-interface clique
+Clique information: 57 packed bits, 2 unsigned words (0 splits), weight = 7.289340, jt_weight = 1.000000
+28 Nodes: state(2)[30],spBit(2)[2],iNumTM(2)[4],stateCountDown(2)[26],emitClass(2)[16],lengthClass(2)[16],topoClass(2)[5],stateLabel(2)[10],oc(2)[2],aa(2)[21],changeState(3)[2],topoChange(3)[2],topo10(3)[10],state(3)[30],spBit(3)[2],iNumTM(3)[4],stateCountDown(3)[26],emitClass(3)[16],lengthClass(3)[16],topoClass(3)[5],stateLabel(3)[10],oc(3)[2],aa(3)[21],stateConstraint(3)[2],pType(3)[4],topoBit(3)[2],oc2(3)[2],topoVE(3)[2]
+24 Assigned: emitClass(2),lengthClass(2),topoClass(2),stateLabel(2),oc(2),aa(2),changeState(3),topoChange(3),topo10(3),state(3),spBit(3),iNumTM(3),stateCountDown(3),emitClass(3),lengthClass(3),topoClass(3),stateLabel(3),oc(3),aa(3),stateConstraint(3),pType(3),topoBit(3),oc2(3),topoVE(3)
+22 Assigned Sorted: stateLabel(2)[10],oc(2)[2],emitClass(2)[16],aa(2)[21],stateLabel(3)[10],changeState(3)[2],state(3)[30],oc(3)[2],emitClass(3)[16],aa(3)[21],stateConstraint(3)[2],topoClass(3)[5],spBit(3)[2],iNumTM(3)[4],topoBit(3)[2],oc2(3)[2],topoChange(3)[2],topo10(3)[10],topoVE(3)[2],lengthClass(3)[16],pType(3)[4],stateCountDown(3)[26]
+22 Dispositions: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+22 Assigned Prob: emitClass(2),stateLabel(2),oc(2),aa(2),changeState(3),topoChange(3),topo10(3),state(3),spBit(3),iNumTM(3),stateCountDown(3),emitClass(3),lengthClass(3),topoClass(3),stateLabel(3),oc(3),aa(3),stateConstraint(3),pType(3),topoBit(3),oc2(3),topoVE(3)
+38 Cum Assigned Prob: changeState(0),topoChange(0),topo10(0),state(0),spBit(0),iNumTM(0),stateCountDown(0),emitClass(0),lengthClass(0),topoClass(0),stateLabel(0),oc(0),aa(0),topoVE(0),changeState(1),topoChange(1),topo10(1),state(1),spBit(1),iNumTM(1),stateCountDown(1),emitClass(1),lengthClass(1),topoClass(1),stateLabel(1),oc(1),aa(1),topoVE(1),changeState(2),topoChange(2),topo10(2),state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2),topoVE(2)
+6 Union Incomming Seps: state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2)
+0 Unassigned Iterated: 
+0 Cumulative Unassigned: 
+19 Hidden/Hashable: state(2)[30],spBit(2)[2],iNumTM(2)[4],stateCountDown(2)[26],emitClass(2)[16],lengthClass(2)[16],topoClass(2)[5],changeState(3)[2],topoChange(3)[2],topo10(3)[10],state(3)[30],spBit(3)[2],iNumTM(3)[4],stateCountDown(3)[26],emitClass(3)[16],lengthClass(3)[16],topoClass(3)[5],pType(3)[4],topoBit(3)[2]
+0 Clique Neighbors: 
+0 Clique Children: 
+1 Receive Seps: 0,
+0 incomming VE Separators
+Send Sep: -1
+
+=== Separator Information ===
+Number of separators = 1
+== Separator number: 0
+Separator information: 0 acc packed bits (0 words, 0 splits), 20 rem packed bits (1 words, 0 splits)
+6 Nodes: state(2)[30],spBit(2)[2],iNumTM(2)[4],stateCountDown(2)[26],lengthClass(2)[16],topoClass(2)[5]
+0 Acc Inter: 
+0 Hid Acc Inter: 
+6 remainder: state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2)
+6 hRemainder: state(2),spBit(2),iNumTM(2),stateCountDown(2),lengthClass(2),topoClass(2)
+
+
+===============================
+
+===============================
+   P1 message order
+Number of messages: 0
+
+
+===============================
+   Co message order
+Number of messages: 0
+
+
+===============================
+   E1 message order
+Number of messages: 0
+
+

@@ -1,0 +1,304 @@
+%##############################################################################
+%################## Copyright 2008 University of Washington ###################
+%##############################################################################
+% Structure File Identification Information
+0 changeState 0 2 D 0 1 0 
+1 topoChange 0 2 D 0 1 0 
+2 topo10 0 10 D 0 1 2 topoChange 0 topoClass 0 
+3 state 0 30 D 0 1 0 
+4 spBit 0 2 D 0 1 1 topoClass 0 
+5 iNumTM 0 4 D 0 1 0 
+6 stateCountDown 0 26 D 1 changeState 0 2 0 1 lengthClass 0 
+7 emitClass 0 16 D 0 1 1 state 0 
+8 lengthClass 0 16 D 0 1 1 state 0 
+9 topoClass 0 5 D 0 1 1 state 0 
+10 stateLabel 0 10 D 0 1 0 
+11 oc 0 2 D 0 1 2 state 0 stateLabel 0 
+12 aa 0 21 D 0 1 1 emitClass 0 
+13 changeState 1 2 D 1 stateCountDown -1 3 1 lengthClass -1 0 0 
+14 topoChange 1 2 D 2 topoClass -1 topoClass 0 2 0 0 
+15 topo10 1 10 D 0 1 2 topoChange 0 topoClass 0 
+16 state 1 30 D 1 changeState 0 2 1 state -1 1 state -1 
+17 spBit 1 2 D 1 spBit -1 2 1 topoClass 0 0 
+18 iNumTM 1 4 D 2 state -1 state 0 2 1 iNumTM -1 2 state -1 iNumTM -1 
+19 stateCountDown 1 26 D 1 changeState 0 2 1 stateCountDown -1 1 lengthClass 0 
+20 emitClass 1 16 D 0 1 1 state 0 
+21 lengthClass 1 16 D 0 1 1 state 0 
+22 topoClass 1 5 D 0 1 1 state 0 
+23 stateLabel 1 10 D 0 1 0 
+24 oc 1 2 D 0 1 2 state 0 stateLabel 0 
+25 aa 1 21 D 0 1 1 emitClass 0 
+26 changeState 2 2 D 1 stateCountDown -1 3 1 lengthClass -1 0 0 
+27 topoChange 2 2 D 2 topoClass -1 topoClass 0 2 0 0 
+28 topo10 2 10 D 0 1 2 topoChange 0 topoClass 0 
+29 state 2 30 D 1 changeState 0 2 1 state -1 1 state -1 
+30 spBit 2 2 D 1 spBit -1 2 1 topoClass 0 0 
+31 iNumTM 2 4 D 2 state -1 state 0 2 1 iNumTM -1 2 state -1 iNumTM -1 
+32 stateCountDown 2 26 D 1 changeState 0 2 1 stateCountDown -1 1 lengthClass 0 
+33 emitClass 2 16 D 0 1 1 state 0 
+34 lengthClass 2 16 D 0 1 1 state 0 
+35 topoClass 2 5 D 0 1 1 state 0 
+36 stateLabel 2 10 D 0 1 0 
+37 oc 2 2 D 0 1 2 state 0 stateLabel 0 
+38 aa 2 21 D 0 1 1 emitClass 0 
+39 stateConstraint 2 2 D 0 1 1 state 0 
+40 pType 2 4 D 0 1 2 spBit 0 iNumTM 0 
+41 topoBit 2 2 D 0 1 2 spBit 0 iNumTM 0 
+42 oc2 2 2 D 0 1 2 topoClass 0 topoBit 0 
+1 1 
+@@@!!!TRIFILE_END_OF_ID_STRING!!!@@@ 
+
+% ---
+% GMTK Triangulation File Created: Monday April 07 2008, 10:32:10 PDT
+% Options-: triangulationHeuristic: completed, jtWeight: T, jtwUB: F, jtwPUI: 0.000000, jtwMC: F, jtwSNSC: 1.000000, jtwDNSC: 1.000000, pfCobWeight: 0.000000, findBestBoundary: T, traverseFraction: 1.000000, noBoundaryMemoize: F, forceLeftRight: , boundaryHeuristic: S, 
+% ---
+
+
+% ---
+% --- M, number of chunks in which to find interface boundary
+1 
+
+% ---
+% --- S, chunk skip
+1 
+
+% ---
+% --- interface method
+LEFT 
+
+% ---
+% --- boundary method
+Left_interface:Run_Bdry_Alg(T),Bnd_Heurs(S),TravFrac(1.000000),Tri_Heur(completed) 
+
+% ---
+% --- P partition information: variables and their neighbors
+% changeState(0) : topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% topoChange(0) : changeState(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% topo10(0) : changeState(0), topoChange(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% state(0) : changeState(0), topoChange(0), topo10(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% spBit(0) : changeState(0), topoChange(0), topo10(0), state(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% iNumTM(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% stateCountDown(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% emitClass(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% lengthClass(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% topoClass(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% stateLabel(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% oc(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% aa(0) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% changeState(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% topoChange(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% topo10(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% state(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% spBit(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% iNumTM(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), stateCountDown(1), lengthClass(1), topoClass(1),
+% stateCountDown(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), lengthClass(1), topoClass(1),
+% lengthClass(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), topoClass(1),
+% topoClass(1) : changeState(0), topoChange(0), topo10(0), state(0), spBit(0), iNumTM(0), stateCountDown(0), emitClass(0), lengthClass(0), topoClass(0), stateLabel(0), oc(0), aa(0), changeState(1), topoChange(1), topo10(1), state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1),
+% --- P partition definition
+P_PARTITION 22 changeState 0 topoChange 0 topo10 0 state 0 spBit 0 iNumTM 0 stateCountDown 0 emitClass 0 lengthClass 0 topoClass 0 stateLabel 0 oc 0 aa 0 changeState 1 topoChange 1 topo10 1 state 1 spBit 1 iNumTM 1 stateCountDown 1 lengthClass 1 topoClass 1 
+
+% ---
+% --- C partition information: variables and their neighbors
+% state(1) : spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% spBit(1) : state(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% iNumTM(1) : state(1), spBit(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% stateCountDown(1) : state(1), spBit(1), iNumTM(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% emitClass(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% lengthClass(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% topoClass(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% stateLabel(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% oc(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% aa(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% changeState(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% topoChange(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% topo10(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% state(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% spBit(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% iNumTM(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% stateCountDown(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), lengthClass(2), topoClass(2),
+% lengthClass(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), topoClass(2),
+% topoClass(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2),
+% --- C partition definition
+C_PARTITION 19 state 1 spBit 1 iNumTM 1 stateCountDown 1 emitClass 1 lengthClass 1 topoClass 1 stateLabel 1 oc 1 aa 1 changeState 2 topoChange 2 topo10 2 state 2 spBit 2 iNumTM 2 stateCountDown 2 lengthClass 2 topoClass 2 
+
+% ---
+% --- E partition information: variables and their neighbors
+% state(2) : spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% spBit(2) : state(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% iNumTM(2) : state(2), spBit(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% stateCountDown(2) : state(2), spBit(2), iNumTM(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% emitClass(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% lengthClass(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% topoClass(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% stateLabel(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% oc(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% aa(2) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% changeState(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% topoChange(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% topo10(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% state(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% spBit(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% iNumTM(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% stateCountDown(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% emitClass(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% lengthClass(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% topoClass(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% stateLabel(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% oc(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), aa(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% aa(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), stateConstraint(3), pType(3), topoBit(3), oc2(3),
+% stateConstraint(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), pType(3), topoBit(3), oc2(3),
+% pType(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), topoBit(3), oc2(3),
+% topoBit(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), oc2(3),
+% oc2(3) : state(2), spBit(2), iNumTM(2), stateCountDown(2), emitClass(2), lengthClass(2), topoClass(2), stateLabel(2), oc(2), aa(2), changeState(3), topoChange(3), topo10(3), state(3), spBit(3), iNumTM(3), stateCountDown(3), emitClass(3), lengthClass(3), topoClass(3), stateLabel(3), oc(3), aa(3), stateConstraint(3), pType(3), topoBit(3),
+% --- E partition definition
+E_PARTITION 27 state 2 spBit 2 iNumTM 2 stateCountDown 2 emitClass 2 lengthClass 2 topoClass 2 stateLabel 2 oc 2 aa 2 changeState 3 topoChange 3 topo10 3 state 3 spBit 3 iNumTM 3 stateCountDown 3 emitClass 3 lengthClass 3 topoClass 3 stateLabel 3 oc 3 aa 3 stateConstraint 3 pType 3 topoBit 3 oc2 3 
+
+% ---
+% --- PC information : variables and their neighbors
+% state(1) : spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% spBit(1) : state(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% iNumTM(1) : state(1), spBit(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% stateCountDown(1) : state(1), spBit(1), iNumTM(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% lengthClass(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% topoClass(1) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% --- PC interface definition
+PC_PARTITION 6 state 1 spBit 1 iNumTM 1 stateCountDown 1 lengthClass 1 topoClass 1 
+
+% ---
+% --- CE information : variables and their neighbors
+% state(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% spBit(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), iNumTM(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% iNumTM(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), stateCountDown(2), lengthClass(2), topoClass(2),
+% stateCountDown(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), lengthClass(2), topoClass(2),
+% lengthClass(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), topoClass(2),
+% topoClass(2) : state(1), spBit(1), iNumTM(1), stateCountDown(1), emitClass(1), lengthClass(1), topoClass(1), stateLabel(1), oc(1), aa(1), changeState(2), topoChange(2), topo10(2), state(2), spBit(2), iNumTM(2), stateCountDown(2), lengthClass(2),
+% --- CE interface definition
+CE_PARTITION 6 state 2 spBit 2 iNumTM 2 stateCountDown 2 lengthClass 2 topoClass 2 
+
+% ---
+% ---- P Partitions Cliques and their weights
+% ---- 1 total max-cliques 
+% ---- Triangulation came from method: 1-completed
+% 0 : 22  6.085219
+%    changeState(0)
+%    topoChange(0)
+%    topo10(0)
+%    state(0)
+%    spBit(0)
+%    iNumTM(0)
+%    stateCountDown(0)
+%    emitClass(0)
+%    lengthClass(0)
+%    topoClass(0)
+%    stateLabel(0)
+%    oc(0)
+%    aa(0)
+%    changeState(1)
+%    topoChange(1)
+%    topo10(1)
+%    state(1)
+%    spBit(1)
+%    iNumTM(1)
+%    stateCountDown(1)
+%    lengthClass(1)
+%    topoClass(1)
+% Maximum clique state space = 1e6.085219, total state space = 1e6.085219
+1-completed 
+3 
+0 22 changeState 0 topoChange 0 topo10 0 state 0 spBit 0 iNumTM 0 stateCountDown 0 emitClass 0 lengthClass 0 topoClass 0 stateLabel 0 oc 0 aa 0 changeState 1 topoChange 1 topo10 1 state 1 spBit 1 iNumTM 1 stateCountDown 1 lengthClass 1 topoClass 1 
+1  1 topo10 0
+2  1 topo10 1
+
+% ---
+% ---- C Partitions Cliques and their weights
+% ---- 1 total max-cliques 
+% ---- Triangulation came from method: 1-completed
+% 0 : 19  6.988309
+%    state(1)
+%    spBit(1)
+%    iNumTM(1)
+%    stateCountDown(1)
+%    emitClass(1)
+%    lengthClass(1)
+%    topoClass(1)
+%    stateLabel(1)
+%    oc(1)
+%    aa(1)
+%    changeState(2)
+%    topoChange(2)
+%    topo10(2)
+%    state(2)
+%    spBit(2)
+%    iNumTM(2)
+%    stateCountDown(2)
+%    lengthClass(2)
+%    topoClass(2)
+% Maximum clique state space = 1e6.988309, total state space = 1e6.988309
+1-completed 
+2 
+0 19 state 1 spBit 1 iNumTM 1 stateCountDown 1 emitClass 1 lengthClass 1 topoClass 1 stateLabel 1 oc 1 aa 1 changeState 2 topoChange 2 topo10 2 state 2 spBit 2 iNumTM 2 stateCountDown 2 lengthClass 2 topoClass 2 
+1  1 topo10 2
+
+% ---
+% ---- E Partitions Cliques and their weights
+% ---- 1 total max-cliques 
+% ---- Triangulation came from method: 1-completed
+% 0 : 27  7.289340
+%    state(2)
+%    spBit(2)
+%    iNumTM(2)
+%    stateCountDown(2)
+%    emitClass(2)
+%    lengthClass(2)
+%    topoClass(2)
+%    stateLabel(2)
+%    oc(2)
+%    aa(2)
+%    changeState(3)
+%    topoChange(3)
+%    topo10(3)
+%    state(3)
+%    spBit(3)
+%    iNumTM(3)
+%    stateCountDown(3)
+%    emitClass(3)
+%    lengthClass(3)
+%    topoClass(3)
+%    stateLabel(3)
+%    oc(3)
+%    aa(3)
+%    stateConstraint(3)
+%    pType(3)
+%    topoBit(3)
+%    oc2(3)
+% Maximum clique state space = 1e7.289340, total state space = 1e7.289340
+1-completed 
+3 
+0 27 state 2 spBit 2 iNumTM 2 stateCountDown 2 emitClass 2 lengthClass 2 topoClass 2 stateLabel 2 oc 2 aa 2 changeState 3 topoChange 3 topo10 3 state 3 spBit 3 iNumTM 3 stateCountDown 3 emitClass 3 lengthClass 3 topoClass 3 stateLabel 3 oc 3 aa 3 stateConstraint 3 pType 3 topoBit 3 oc2 3 
+1  1 topo10 3
+2  1 pType  3
+
+
+% ----
+% ----
+% ----
+% ---- Printing final clique set and clique weights---
+%   --- Prologue summary, 1 cliques
+%    --- P curWeight = 6.085219
+%   --- Prologue max clique weight = 6.085219, total weight = 6.085219, jt_weight = 1.000000
+%   --- Chunk summary, 1 cliques
+%    --- C curWeight = 6.988309
+%   --- Chunk max clique weight = 6.988309, total Cx1 weight = 6.988309, per-chunk total C weight = 6.988309, jt_weight = 1.000000
+%   --- Epilogue summary, 1 cliques
+%    --- E curWeight = 7.289340
+%   --- Epilogue max clique weight = 7.289340, total weight = 7.289340, jt_weight = 1.000000
+% --- Final set (P,Cx1,E) has max clique weight = 7.289340, total state space = 7.483159 ---
+% --- Total weight when unrolling 1x = 7.483159 ---
+% --- Total weight when unrolling 2x = 7.603733 ---
+% --- Total weight when unrolling 5x = 7.841094 ---
+% --- Total weight when unrolling 10x = 8.071991 ---
+% --- Total weight when unrolling 20x = 8.333193 ---
+% --- Total weight when unrolling 50x = 8.705355 ---
+% --- Total weight when unrolling 100x = 8.997441 ---
+% --- Total weight when unrolling 500x = 9.689121 ---
+% --- Total weight when unrolling 1000x = 9.989231 ---

@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+#
+#     homologhmm 1.05
+#     A hidden Markov model sequence and alignment decoder 
+#
+#     (c) 2005 Lukas Kall.
+#
+#     The program is distributed under GPL, see http://gnu.org for details
+#     The program uses the BioJava library which is distributed under LGPL
+#
+#     Script $Revision: 1.1 $
+#
+
+use FindBin;
+my $JPHOBIUS_DIR = "$FindBin::RealBin";
+my @jars =         (<$JPHOBIUS_DIR/*.jar>);
+my $CP =           join ":",@jars;
+my $CMD =          "java -cp $CP se.ki.cgb.hmmdecode.Run " . (join ' ', @ARGV);
+exec $CMD

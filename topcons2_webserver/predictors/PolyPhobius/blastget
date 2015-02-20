@@ -1,0 +1,186 @@
+#!/usr/bin/perl
+#
+#     blastget
+#     A script for retrieving siutable homologs with help of NCBI Blast service
+#     Align the output with your favorite multiple sequence alignment program (Kalign)
+#     before entering the sequences into jphobius or homologhmm 
+#
+#     (c) 2005 Lukas Kall.
+#
+#     The script is distributed under GPL, see http://gnu.org for details
+#     The script needs the BioPerl package to work properly.
+#     The script is in high degree inspired from BioPerl example code
+#
+
+use FindBin;
+use lib "$FindBin::RealBin";
+use Getopt::Long;
+#use Bio::Tools::Run::RemoteBlast;
+use Bio::Tools::Run::StandAloneBlast;
+use Bio::Index::Fasta;
+#use Bio::DB::NCBIHelper;
+#use Bio::DB::GenBank;
+#use Bio::DB::Query::GenBank;
+use strict;
+
+my $prog = 'blastp';
+my $db   = '';
+my $e_val= '1e-5';
+my $lcut = 0.75;
+my $v = 0;
+my $local = 0;
+my $index_file = "";
+my $create_from = "";
+my $maxHsp = 250;
+my $processors = 4;
+
+=pod
+sub remote_blast {
+  my $inseq = $_[0];
+  my @params = ( '-prog' => $prog,
+     '-data' => $db,
+     '-expect' => $e_val,
+     '-readmethod' => 'SearchIO' );
+  my $factory = Bio::Tools::Run::RemoteBlast->new(@params);
+  my $r = $factory->submit_blast($inseq);
+
+  print STDERR "waiting..." if( $v > 0 );
+  while ( my @rids = $factory->each_rid ) {
+    foreach my $rid ( @rids ) {
+      my $rc = $factory->retrieve_blast($rid);
+      if( !ref($rc) ) {
+        if( $rc < 0 ) {
+	  $factory->remove_rid($rid);
+        }
+        print STDERR "." if ( $v > 0 );
+        sleep 5;
+      } else {
+        my $result = $rc->next_result();
+        $factory->remove_rid($rid);
+	return $result;
+      }
+    }
+  }  
+}
+=cut
+sub local_blast {
+  my $inseq = $_[0];
+  my @params = ('p' => $prog,
+                'd' => $db,
+		'a' => $processors,
+                'e' => $e_val,
+                'b' => $maxHsp );
+  my $factory = Bio::Tools::Run::StandAloneBlast->new(@params);
+  my $result = $factory->blastall($inseq);
+  return $result->next_result();
+}
+
+=pod
+sub remote_fetch {
+  my @ids = @{$_[0]};
+  my $seqout = $_[1];
+  
+  my $db = Bio::DB::GenBank->new('-mode' => 'batch','-format' => 'fasta');
+  my $query_text = join ' OR ', @ids;
+  print STDERR "Searching for $query_text in GeneBank\n" if ($v>0);
+  my $query = Bio::DB::Query::GenBank->new('-query' => $query_text);
+  my $seqio = $db->get_Stream_by_query($query);
+  while (my $seq = $seqio->next_seq()) {
+      $seqout->write_seq($seq);
+  }
+}
+=cut
+
+sub local_fetch {
+  my @ids = @{$_[0]};
+  my $seqout = $_[1];
+
+  my $inx = Bio::Index::Fasta->new('-filename' => $index_file);  
+  foreach my $id (@ids) {
+     my $seq = $inx->fetch($id); # Returns Bio::Seq object
+     $seqout->write_seq($seq);
+  }
+}
+
+sub create_index {
+ my $inx = Bio::Index::Fasta->new(
+        '-filename' => $index_file,
+        '-write_flag' => 1);
+ $inx->make_index($create_from);
+}
+
+
+my $usage=<<"EOF";
+blastget
+
+usage: blastget [-db database] [-e e_value] [-l length_cut_off] [-v] [-ix index_file] [input.fa]
+alt. : blastget -ix indexfile -create fasta_db
+
+if input.fa is not provided fasta records will be read from standard input 
+
+
+option -db: change database for blast querries from 'nr'
+option -e : change e-value cut off from 1e-5
+option -l : change length cut off from 0.75
+option -v : verbose output
+option -ix: index file to retrive records from, if provided blast will be run locally
+option -create: create a new index file from a fasta file and exit
+EOF
+
+# Process options
+my $result = GetOptions ('db=s' => \$db,'e=f' => \$e_val,
+                         'l=f' => \$lcut,'v!' => \$v,
+			 'ix=s' => \$index_file,
+			 'create=s' => \$create_from);
+die ("Error on command line\n$usage") unless $result;
+
+if ($create_from && $index_file) {
+  &create_index;
+  #print "Sucessfully (re)created index $index_file\n";
+  exit;
+}
+#die ("Specified create but no index file provided with -ix option") if ($create_from && not $index_file);
+$local = 1 if $index_file;
+
+my ($blastcall,$fetch);
+if ($local) {
+ # print STDERR "Configure as Local\n" if( $v > 0 );
+  $blastcall=\&local_blast;
+  $fetch=\&local_fetch;
+} else {
+  #print STDERR "Configure as Remote\n" if( $v > 0 );
+  $blastcall=\&remote_blast;
+  $fetch=\&remote_fetch;
+}
+
+my $seqout = Bio::SeqIO->new( '-format' => 'fasta', '-fh' => \*STDOUT);
+
+my $instr;
+if ($#ARGV>=0) {
+  my $file = shift @ARGV;
+  #print STDERR "Reading input from the file $file\n" if( $v > 0 );
+  $instr = Bio::SeqIO->new(-file=> $file , '-format' => 'fasta' );
+} else {
+  #print STDERR "Reading input from STDIN\n" if( $v > 0 );
+  $instr = Bio::SeqIO->new(-fh => \*STDIN,'-format' => 'fasta' );
+}
+
+while (my $input = $instr->next_seq()){
+  my @ids = ();
+  my $result = $blastcall->($input); 
+
+  #print STDERR "\nQuery Name: ", $result->query_name(), "\n" if ($v>0);
+  while ( my $hit = $result->next_hit ) {
+    eval {
+      if ($hit->frac_aligned_hit()>$lcut && $hit->frac_aligned_query()>$lcut) {
+   #     print STDERR "\tcounting  ",$hit->name,"\n" if ($v>0); 
+        push @ids,$hit->name;       
+      } else {
+        print STDERR "\tthrew away ",$hit->name,"\n" if ($v>0); 
+      }
+    };
+  }  
+  $seqout->write_seq($input);
+  $fetch->(\@ids,$seqout);
+}
+

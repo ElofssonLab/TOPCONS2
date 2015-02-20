@@ -1,0 +1,64 @@
+%##############################################################################
+%################## Copyright 2008 University of Washington ###################
+%##############################################################################
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+GRAPHICAL_MODEL model_test
+
+#include "commonParams.txt"
+#include "commonParams.test1.txt"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% the only difference between the "test" model and the "train" model is that
+% the "stateLabel" node is now HIDDEN ...
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+frame: 0 {
+
+    #include "model_prologue.inc"
+    #include "model_classMaps.inc"
+    #include "model_obsLabel.inc"
+    #include "model_emitAA.inc"
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% frame1 is the CHUNK : this is the frame that will be replicated as many times
+% as needed to 'unroll' the DBN to match the length of the input protein;
+% several nodes have parents from the preceding frame
+%
+
+frame: 1 {
+
+    #include "model_chunk.inc"
+    #include "model_classMaps.inc"
+    #include "model_obsLabel.inc"
+    #include "model_emitAA.inc"
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% frame2 is the EPILOGUE : this will always be the final frame in the unrolled
+% DBN; the only difference between this frame and frame1 is that a constraint
+% is applied to the ending state
+
+frame: 2 {
+
+    #include "model_chunk.inc"
+    #include "model_classMaps.inc"
+    #include "model_obsLabel.inc"
+    #include "model_emitAA.inc"
+    #include "model_test_epilogue.inc"
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+chunk 1:1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

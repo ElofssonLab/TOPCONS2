@@ -1,0 +1,23 @@
+###############################################################################
+################### Copyright 2008 University of Washington ###################
+###############################################################################
+
+#ifndef COMMON_PARAMS
+#define COMMON_PARAMS
+
+#define BINARY_CARD			 2
+#define LABEL_CARD			10	
+#define EMIT_CLASS_CARD			16
+#define LENGTH_CLASS_CARD		16
+#define TOPO_CLASS_CARD			 5
+#define TOPO_10_CARD			10
+#define STATE_CARD			30
+#define AA_CARD				21
+#define MAX_STATE_LENGTH_CARD		26
+#define PROTEIN_TYPE_CARD		 4
+#define SIMPLE_STATE_CARD		 6
+#define MAX_TOPO_LENGTH_CARD            35
+#define NUM_TM_CARD			 4
+
+#endif
+
