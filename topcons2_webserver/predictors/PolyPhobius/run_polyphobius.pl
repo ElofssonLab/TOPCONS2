@@ -22,8 +22,10 @@ chomp ($count_blast_hits);
 
 if($count_blast_hits>1) #I have a lot of hits, run kalign
 {
-	print `/usr/bin/kalign -q -f fasta -input $bg_file -output $msa_file`; #kalign run
-	print `perl jphobius -poly $msa_file > $pred_file`; #topology prediction
+    #print `/usr/bin/kalign -q -f fasta -input $bg_file -output $msa_file`; #kalign run
+    # let kalign be in the path
+    print `kalign -q -f fasta -input $bg_file -output $msa_file`; #kalign run
+    print `perl jphobius -poly $msa_file > $pred_file`; #topology prediction
 }
 
 else	#No hits, get prediction without homology
