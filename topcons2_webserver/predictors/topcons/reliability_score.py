@@ -21,10 +21,10 @@ def prf2reliability(prffile, topfile, outfile) :
         elif line.startswith('COL') :
             lstCols = line.strip().split();
             dctProfile[lstCols[1].rstrip(':')] = {'i': float(lstCols[2]), 
-                                                  'M': float(lstCols[3]),
+                                                  'M': float(lstCols[3]) + float(lstCols[6]),
                                                   'o': float(lstCols[4]),
-                                                  'S': float(lstCols[5]),
-						  'p': float(lstCols[6])};
+                                                  'S': float(lstCols[5]);
+#						  'p': float(lstCols[6])};
     flhPrf.close();
 
     if len(dctProfile) != intSeqLength :
