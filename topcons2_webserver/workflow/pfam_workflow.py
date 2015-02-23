@@ -50,7 +50,7 @@ def main(args):
                 tmpDir_uniref = ""
 
 # Changed by Nanjiang at 2015-02-05 23:07:44, no random suffix in the folder,
-# since the specified out_path should be exclusively for this query 
+# since the specified out_path should be exclusively for this query
         #outDir = tempfile.mkdtemp(dir=out_path, prefix="seq_" + str(index) + "_") + "/"
                 protnamefile = "%s/query.fa.txt"%(tmpDir)
                 try:
@@ -197,7 +197,7 @@ def main(args):
                         results.append("%s/%s"%(outDir, "OCTOPUS/"))
                         count_pred += 1
                 except OSError:
-                    # In case of a random crash we predict without spoctopus 
+                    # In case of a random crash we predict without spoctopus
                     pass
 
                 try:
@@ -233,7 +233,7 @@ def main(args):
                 cmd = ["./TOPCONS.sh", protnamefile, outdir_topcons, outDir]
                 cmdline = " ".join(cmd)
                 #os.system("./TOPCONS.sh " + tmpDir + "query.fa.txt " + outDir + "Topcons/ " + results)
-                #print "./TOPCONS.sh " + tmpDir + "query.fa.txt " + outDir + "Topcons/ " + results 
+                #print "./TOPCONS.sh " + tmpDir + "query.fa.txt " + outDir + "Topcons/ " + results
                 #subprocess.call(["./TOPCONS.sh", tmpDir + "query.fa.txt", outDir + "Topcons/", outDir + "OCTOPUS/", outDir + "philius/", outDir + "PolyPhobius/", outDir + "SPOCTOPUS/", outDir + "SCAMPI_MSA/"])
 
                 if DEBUG:
@@ -274,6 +274,8 @@ def main(args):
                         p = subprocess.call(["rm", "-r", tmpDir_pfam])
                 else:
                     print "tmpDir=%s"%(tmpDir)
+
+                p = subprocess.call(["python","correct_Topo.py", outDir])
                 #exit()
 
 
