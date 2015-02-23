@@ -247,12 +247,6 @@ def main(args):
                 os.system("perl myscanDG.pl -o " + outDir + "dg.txt " + tmpDir + "query.fa")
                 os.chdir(startDir)
 
-                cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
-                try:
-                    rmsg = subprocess.check_output(cmd)
-                except subprocess.CalledProcessError, e:
-                    print e
-                    print rmsg
 
                 end = time.time()
                 lines = 0
@@ -276,6 +270,13 @@ def main(args):
                     print "tmpDir=%s"%(tmpDir)
 
                 p = subprocess.call(["python","correct_Topo.py", outDir])
+
+                cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
+                try:
+                    rmsg = subprocess.check_output(cmd)
+                except subprocess.CalledProcessError, e:
+                    print e
+                    print rmsg
                 #exit()
 
 
