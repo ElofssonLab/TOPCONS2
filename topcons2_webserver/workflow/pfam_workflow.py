@@ -228,7 +228,9 @@ def main(args):
                     count_pred += 1
 
                 outdir_topcons = "%s/Topcons/"%(outDir)
-                cmd = ["./TOPCONS.sh", protnamefile, outdir_topcons] + results
+                #cmd = ["./TOPCONS.sh", protnamefile, outdir_topcons] + results
+                # 2015-02-23, the syntax of TOPCONS.sh has been changed
+                cmd = ["./TOPCONS.sh", protnamefile, outdir_topcons, outDir]
                 cmdline = " ".join(cmd)
                 #os.system("./TOPCONS.sh " + tmpDir + "query.fa.txt " + outDir + "Topcons/ " + results)
                 #print "./TOPCONS.sh " + tmpDir + "query.fa.txt " + outDir + "Topcons/ " + results 

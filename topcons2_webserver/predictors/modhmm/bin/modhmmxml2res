@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/xsltproc ../modhmm/share/modhmm/xslt/xml2res.xsl -
+/usr/bin/xsltproc /server/soft/topcons2_webserver/predictors/modhmm/share/modhmm/xslt/xml2res.xsl -

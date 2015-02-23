@@ -6,13 +6,14 @@ if [ ${#2} -lt 1 ]; then
     exit
 fi
 
-prfFolder=$1
+#prfFolder=$1
+protnamefile=$1
 pssmprfdir=$2
 rawprfdir=$3
 outdir=$4
 
-/bin/echo query > $prfFolder/query.fa.txt
-protnamefile=$prfFolder/query.fa.txt
+# /bin/echo query > $prfFolder/query.fa.txt
+# protnamefile=$prfFolder/query.fa.txt
 
 #args
 #protnamefile=$1
