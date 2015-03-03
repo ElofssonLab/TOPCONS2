@@ -73,6 +73,6 @@ python src/python/writeReportOnly.py ${tmpFolder}/testVitFiles.list ${tmpFolder}
 
 #cat scratch/Philius.report.out 
 perl philius_convert.pl $tmpFolder/Philius.report.out ${outFolder}
-#rm -r $tmpFolder
+rm -r $tmpFolder
 #/*
 
