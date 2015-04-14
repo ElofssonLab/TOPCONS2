@@ -44830,3 +44830,9 @@ Version 2.2.26 [Sep-21-2011]
 Started database file "/tmp/out_1/query.hits.db"
 Formatted 1261 sequences in volume 0
 SUCCESS: formatted database /tmp/out_1/query.hits.db
+
+========================[ Apr 13, 2015 10:28 AM ]========================
+Version 2.2.26 [Sep-21-2011]
+Started database file "/scratch/seq_0_oc5DAd//query.hits.db"
+Formatted 1254 sequences in volume 0
+SUCCESS: formatted database /scratch/seq_0_oc5DAd//query.hits.db

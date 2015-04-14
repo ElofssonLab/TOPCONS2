@@ -9,6 +9,11 @@ import module_locator
 import ntpath
 
 DEBUG=False
+
+TMPPATH="/tmp"
+if os.path.exists("/scratch"):
+    TMPPATH="/scratch"
+
 # it seems apache on centos does not like /usr/local/bin
 # /usr/local/bin can not be added to path
 usage="""
@@ -25,6 +30,16 @@ def main(args):
         print >> sys.stderr, "Bad syntax"
         print usage
         sys.exit(1)
+
+    if not os.path.exists(inFile):
+        print >> sys.stderr, "inFile %s does not exist. Exit."%(inFile)
+        sys.exit(1)
+    if not os.path.exists(out_path):
+        try:
+            os.makedirs(out_path)
+        except OSError:
+            print >> sys.stderr, "Failed to create out_path %s. Exit."%(out_path)
+            sys.exit(1)
 
     # Set the working dir to the script location
     my_path = module_locator.module_path()
@@ -43,7 +58,7 @@ def main(args):
 
                 #Create folders for tmp data and output
                 used_pfam = "pfam"
-                tmpDir = tempfile.mkdtemp(prefix="seq_" + str(index) + "_") + "/"
+                tmpDir = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
 #                 os.chmod(tmpDir, 0755)
                 tmpDir_pfam = tmpDir
                 tmpDir_cdd = ""
@@ -51,7 +66,6 @@ def main(args):
 
 # Changed by Nanjiang at 2015-02-05 23:07:44, no random suffix in the folder,
 # since the specified out_path should be exclusively for this query
-        #outDir = tempfile.mkdtemp(dir=out_path, prefix="seq_" + str(index) + "_") + "/"
                 protnamefile = "%s/query.fa.txt"%(tmpDir)
                 try:
                     fpout = open(protnamefile, "w")
@@ -109,7 +123,7 @@ def main(args):
                     filesize = -1
 
                 if filesize <= 0:
-                    tmpDir_cdd = tempfile.mkdtemp(prefix="seq_" + str(index) + "_") + "/"
+                    tmpDir_cdd = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
                     with open(tmpDir_cdd + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
                     used_pfam = "cdd"
@@ -130,7 +144,7 @@ def main(args):
 
 #                 if os.stat(tmpDir + "query.hits.db").st_size == 0:
                 if filesize <= 0:
-                    tmpDir_uniref = tempfile.mkdtemp(prefix="seq_" + str(index) + "_") + "/"
+                    tmpDir_uniref = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
                     with open(tmpDir_uniref + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
                     used_pfam = "uniref"
@@ -274,6 +288,7 @@ def main(args):
                 cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
                 try:
                     rmsg = subprocess.check_output(cmd)
+                    print rmsg
                 except subprocess.CalledProcessError, e:
                     print e
                     print rmsg

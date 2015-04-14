@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -W
 use strict;
 use warnings;
 
@@ -213,22 +213,27 @@ sub mk_plot
 
     open (DG, ">$DG_res_used");
 
-    open (TMP, $DG_res_file);
-    while(<TMP>)
+    open (IN, $DG_res_file);
+    while(<IN>)
     {
         if ($_=~/^\d+/)
         {
             print DG $_;
         }
     }
-    close TMP;
+    close IN;
     close DG;
-    unlink ($DG_res_file);
+#    unlink ($DG_res_file);
 #    unlink ($DG_res_used);
 
-    my $DG_min=`$sort -gk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
-    my $DG_max=`$sort -grk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'`;
-    
+#     print "$sort -gk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'"."\n";
+#     print "$sort -grk 2 $DG_res_used|$head -n 1|$awk '{print \$2}'"."\n";
+    my $DG_min = -2;
+    my $DG_max = 6;
+
+    $DG_min=`$sort -gk 2 $DG_res_used | $head -n 1 | $awk '{print \$2}'`;
+    $DG_max=`$sort -grk 2 $DG_res_used | $head -n 1 | $awk '{print \$2}'`;
+
     my $DG_tick_max=int($DG_max+0.5 * ($DG_max <=> 0))+1;
     my $DG_tick_min=int($DG_min+0.5 * ($DG_min <=> 0))-1;
     my $DG_axis_max=1.8*($DG_tick_max-$DG_tick_min)+$DG_tick_min;
@@ -348,8 +353,12 @@ sub mk_topcons_plot
     my $topcons_large_image = $outfolder."Topcons/topcons.large.png";  
     my $topcons_small_image = $outfolder."Topcons/topcons.png";  
 
-    my $rel_min=`$sort -gk 2 $reliability_res_file_used|$head -n 1|$awk '{print \$2}'`;
-    my $rel_max=`$sort -grk 2 $reliability_res_file_used|$head -n 1|$awk '{print \$2}'`;
+#     print "$sort -gk 2 $reliability_res_file_used|$head -n 1|$awk '{print \$2}'"."\n";
+#     print "$sort -grk 2 $reliability_res_file_used|$head -n 1|$awk '{print \$2}'"."\n";
+    my $rel_min = 0;
+    my $rel_max = 100;
+    $rel_min=`$sort -gk 2 $reliability_res_file_used | $head -n 1 | $awk '{print \$2}'`;
+    $rel_max=`$sort -grk 2 $reliability_res_file_used | $head -n 1 | $awk '{print \$2}'`;
     my $rel_tick_max=int(10*$rel_max+1)/10;
     ($rel_tick_max > 1) && ($rel_tick_max = 1);
     my $rel_tick_min=int(10*$rel_min)/10;
