@@ -6,11 +6,16 @@ if [ ${#5} -lt 1 ]; then
     exit
 fi
 
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
 
 BLAST=$4
 DATABASE=$5
 ################################################
-workingdir=`/bin/mktemp -d /tmp/run_blast_XXXXXXXXXX` || exit 1
+workingdir=`/bin/mktemp -d $TMPPATH/run_blast_XXXXXXXXXX` || exit 1
+
 
 
 

@@ -11,9 +11,13 @@
 ##		the input FASTA file, one is called <name>.obs (where "name"
 ##		is taken from the ">" header line in the FASTA file), and
 ##		the other file is called "input.list"
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
 infile=$1
 outFolder=$2
-tmpFolder=`mktemp -d`
+tmpFolder=`/bin/mktemp -d $TMPPATH/runPhilius_XXXXXXXXX` || exit 1
 #scratch/
 tmpFile=${tmpFolder}/${infile##*/}
 

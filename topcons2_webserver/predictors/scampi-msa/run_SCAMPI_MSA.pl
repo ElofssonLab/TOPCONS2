@@ -8,7 +8,7 @@ use File::Basename;
 #ämy $fastafile=$ARGV[0];
 my $seqfolder = $ARGV[0];#dirname($fastafile);
 my $outDir = $ARGV[1]; 
-my $tmpdir = $seqfolder; #$ARGV[2];#tempdir("/tmp/scampi-msa_tmpdir_XXXXXX")
+my $tmpdir = $seqfolder;
 my $outTmpFile = $tmpdir."SCAMPI_MSA.top";
 
 #my $bindir = "./";

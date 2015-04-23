@@ -6,6 +6,11 @@ if [ ${#2} -lt 1 ]; then
     exit
 fi
 
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
+
 #prfFolder=$1
 protnamefile=$1
 pssmprfdir=$2
@@ -36,9 +41,9 @@ N=`/bin/echo  $args | /bin/grep N`
 D=`/bin/echo  $args | /bin/grep D`
 
 octopusdir=.
-workingdir=`/bin/mktemp -d /tmp/SPOCTOPUS_XXXXXXXXXX` || exit 1
-/bin/mkdir $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES
-/bin/mkdir $workingdir/SEQNAMEFILES
+workingdir=`/bin/mktemp -d $TMPPATH/SPOCTOPUS_XXXXXXXXXX` || exit 1
+/bin/mkdir -p $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES
+/bin/mkdir -p $workingdir/SEQNAMEFILES
 
 #if [ ${#N} -gt 0 ]; then
 #    /bin/mkdir $outdir/NN_PRF_FILES
@@ -50,7 +55,7 @@ for i in $seqs
 do
   /bin/sh $octopusdir/bin/run_SPOCTOPUS.sh $i $rawprfdir $pssmprfdir $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES $workingdir $octopusdir > /dev/null
   /bin/cat $i | /usr/bin/xargs -I xxx /bin/cp $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES/xxx.top ${outdir}/SPOCTOPUS.top.tmp 
-  mkdir ${outdir}/SPOCTOPUS/ > /dev/null
+  mkdir -p ${outdir}/SPOCTOPUS/ > /dev/null
   perl oneline_sp.pl ${outdir}/SPOCTOPUS.top.tmp > ${outdir}/SPOCTOPUS/query.top
   rm ${outdir}/SPOCTOPUS.top.tmp
   #if [ ${#N} -gt 0 ]; then

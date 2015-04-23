@@ -13,7 +13,7 @@ blastdir=$2;
 
 if [[ -s ${infile_path}.prf ]]; then
     echo "$0: Found file '${infile_path}.mtx', skipping BLAST-run";
-    exit ;
+    exit 0;
 else
     echo "No blast result found for ${infile_path}";
 fi

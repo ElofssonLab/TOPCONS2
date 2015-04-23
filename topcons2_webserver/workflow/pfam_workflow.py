@@ -20,6 +20,10 @@ usage="""
 Usage: %s inFile out_path blastDir blastDB
 """%(sys.argv[0])
 
+rundir = os.path.dirname(os.path.realpath(__file__))
+basedir = os.path.realpath("%s/../"%(rundir))  #path to topcons2_webserver
+
+
 def main(args):
     try:
         inFile = os.path.realpath(args[1])
@@ -59,7 +63,7 @@ def main(args):
                 #Create folders for tmp data and output
                 used_pfam = "pfam"
                 tmpDir = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
-#                 os.chmod(tmpDir, 0755)
+                os.chmod(tmpDir, 0755)
                 tmpDir_pfam = tmpDir
                 tmpDir_cdd = ""
                 tmpDir_uniref = ""
@@ -106,59 +110,83 @@ def main(args):
                 os.chdir(startDir)
 
                 # At the same time the profiles can be created
-                cmd = ["./fa2prfs_pfamscan_v2.sh", tmpDir, blastDir]
+                cmd = ["./fa2prfs_pfamscan_v2.sh", tmpDir_pfam, blastDir]
+                cmdline = " ".join(cmd)
                 rmsg = ""
                 try:
+                    print "cmdline: ", cmdline
                     rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                 except subprocess.CalledProcessError, e:
-                    print e
-                    print rmsg
-                # In case we do not find a hit, we have to run hmmscan on the cdd database
-                query_seqdbfile = "%s/%s"%(tmpDir, "query.hits.db")
-#                 if os.stat(tmpDir + "query.hits.db").st_size == 0:
+                    print "errmsg:", e
+                    print "rmsg:", rmsg
+                    pass
+                query_seqdbfile = "%s/%s"%(tmpDir_pfam, "query.hits.db")
                 filesize = 0
                 try:
-                    filesize = os.stat(query_seqdbfile).st_size
+                    filesize = os.path.getsize(query_seqdbfile)
                 except OSError:
                     filesize = -1
+                    pass
+                if DEBUG:
+                    print "After fa2prfs_pfamscan_v2.sh filesize(%s)=%d"%(query_seqdbfile, filesize)
 
+                # In case we do not find a hit, we have to run hmmscan on the cdd database
                 if filesize <= 0:
-                    tmpDir_cdd = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
+                    tmpDir_cdd = tempfile.mkdtemp(prefix="%s/seq_cdd_"%(TMPPATH) + str(index) + "_") + "/"
+                    os.chmod(tmpDir_cdd, 0755)
                     with open(tmpDir_cdd + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
                     used_pfam = "cdd"
                     cmd = ["./fa2prfs_hmmscan.sh", tmpDir_cdd, blastDir]
+                    cmdline = " ".join(cmd)
                     try:
+                        print "\ncmdline:",cmdline
                         rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
-                        print e
-                        print rmsg
+                        print "errmsg:", e
+                        print "rmsg:", rmsg
+                        pass
 
                     tmpDir = tmpDir_cdd
+
+                    query_seqdbfile = "%s/%s"%(tmpDir_cdd, "query.hits.db")
+                    try:
+                        filesize = os.path.getsize(query_seqdbfile)
+                    except OSError:
+                        filesize = -1
+                        pass
+
+                    if DEBUG:
+                        print "After fa2prfs_hmmscan.sh filesize(%s)=%d"%(query_seqdbfile, filesize)
                 # In case we do not find a hit, we have to run the old script
-
-                try:
-                    filesize = os.stat(query_seqdbfile).st_size
-                except OSError:
-                    filesize = -1
-
-#                 if os.stat(tmpDir + "query.hits.db").st_size == 0:
                 if filesize <= 0:
-                    tmpDir_uniref = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
+                    tmpDir_uniref = tempfile.mkdtemp(prefix="%s/seq_uniref_"%(TMPPATH) + str(index) + "_") + "/"
+                    os.chmod(tmpDir_uniref, 0755)
                     with open(tmpDir_uniref + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
                     used_pfam = "uniref"
                     cmd =  ["./fa2prfs_fallback_v2.sh", tmpDir_uniref, blastDir, blastDB]
                     cmdline = " ".join(cmd)
-                    if DEBUG:
-                        print "cmdline:", cmdline
                     try:
+                        print "\ncmdline:", cmdline
                         rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
                         print e
                         print rmsg
+                        pass
                     tmpDir = tmpDir_uniref
 
+                    query_seqdbfile = "%s/%s"%(tmpDir_uniref,"query.hits.db")
+                    try:
+                        filesize = os.path.getsize(query_seqdbfile)
+                    except OSError:
+                        filesize = -1
+                        pass
+
+                    if DEBUG:
+                        print "After fa2prfs_fallback_v2.sh filesize(%s)=%d"%(query_seqdbfile, filesize)
+
+                print "Final working dir: tmpdir=", tmpDir
                 # Once the profile is created start all other predictors
                 os.chdir(os.path.abspath("../predictors/scampi-msa/"))
                 cmd = ["perl", "run_SCAMPI_MSA.pl", tmpDir , outDir]
@@ -256,10 +284,36 @@ def main(args):
                     rmsg = subprocess.check_output(cmd)
                 except subprocess.CalledProcessError, e:
                     print >> sys.stderr, str(e)
+                    pass
                 os.chdir(startDir)
                 os.chdir(os.path.abspath("../tools/dgpred_standalone/"))
                 os.system("perl myscanDG.pl -o " + outDir + "dg.txt " + tmpDir + "query.fa")
                 os.chdir(startDir)
+
+                # adding homology prediction
+                oneseqfile = "%s/query.fa"%(tmpDir)
+                outDir_homopred =  "%s/Homology/"%(outDir)
+                path_pdb_homology = "%s/predictors/pdb_homology/3d_homology/"%(basedir)
+                script_homology_pred = "%s/map_3D_struct_to_query.pl"%(path_pdb_homology)
+                pdb_dbfile_fasta  = "%s/3D_struct_DB.fasta"%(path_pdb_homology)
+                pdb_dbfile_3line = "%s/3D_struct_DB.3line"%(path_pdb_homology)
+                cmd = ["perl", script_homology_pred, oneseqfile,
+                        pdb_dbfile_fasta, pdb_dbfile_3line, outDir_homopred]
+                try:
+                    rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+                except subprocess.CalledProcessError, e:
+                    cmdline = " ".join(cmd)
+                    print "cmdline: %s"%(cmdline)
+                    print e
+                    print rmsg
+                    pass
+                except:
+                    pass
+
+                homo_topo_file = "%s/%s"%(outDir_homopred, "query.fa.homo_top")
+                if os.path.exists(homo_topo_file):
+                    os.rename(homo_topo_file, "%s/query.top"%(outDir_homopred))
+
 
 
                 end = time.time()
@@ -273,13 +327,13 @@ def main(args):
 
                 if not DEBUG: #debugging
                     if os.path.exists(tmpDir) is True:
-                        p = subprocess.call(["rm", "-r", tmpDir])
+                        p = subprocess.call(["rm", "-rf", tmpDir])
                     if os.path.exists(tmpDir_cdd) is True:
-                        p = subprocess.call(["rm", "-r", tmpDir_cdd])
+                        p = subprocess.call(["rm", "-rf", tmpDir_cdd])
                     if os.path.exists(tmpDir_uniref) is True:
-                        p = subprocess.call(["rm", "-r", tmpDir_uniref])
+                        p = subprocess.call(["rm", "-rf", tmpDir_uniref])
                     if os.path.exists(tmpDir_pfam) is True:
-                        p = subprocess.call(["rm", "-r", tmpDir_pfam])
+                        p = subprocess.call(["rm", "-rf", tmpDir_pfam])
                 else:
                     print "tmpDir=%s"%(tmpDir)
 
@@ -292,6 +346,7 @@ def main(args):
                 except subprocess.CalledProcessError, e:
                     print e
                     print rmsg
+                    pass
                 #exit()
 
 

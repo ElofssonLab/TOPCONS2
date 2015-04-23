@@ -5,6 +5,11 @@ if [ ${#3} -lt 1 ]; then
     exit
 fi
 
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
+
 rundir=`dirname $0`
 cd $rundir
 #args
@@ -27,7 +32,7 @@ predDir=$3
 topconsdir=.
 ##################################################################################
 
-workingdir=`/bin/mktemp -d /tmp/TOPCONS_XXXXXXXXXX` || exit 1
+workingdir=`/bin/mktemp -d $TMPPATH/TOPCONS_XXXXXXXXXX` || exit 1
 /bin/mkdir $workingdir/SEQNAMEFILES
 /bin/mkdir $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES
 /bin/mkdir $workingdir/CONSENSUS_PROFILES

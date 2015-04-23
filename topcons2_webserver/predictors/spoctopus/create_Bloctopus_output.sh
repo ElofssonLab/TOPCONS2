@@ -1,7 +1,13 @@
+#!/bin/bash
+
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
+
 protnamefile=/scratch/KOSTAS/topcons2/topcons2_webserver/predictors/spoctopus/name.list
 fastadir=/scratch/KOSTAS/topcons2/topcons2_webserver/input/
-#workingdir=/tmp/test_bloc/
-workingdir=`/bin/mktemp -d /tmp/BLOCTOPUS_XXXXXXXXXX` || exit 1
+workingdir=`/bin/mktemp -d $TMPPATH/BLOCTOPUS_XXXXXXXXXX` || exit 1
 BLASTALL=/scratch/KOSTAS/blast-2.2.26/bin/blastall
 DATABASE=/scratch/KOSTAS/topcons2/topcons2_webserver/database/blast/uniref90.fasta
 BLASTPGP=/scratch/KOSTAS/blast-2.2.26/bin/blastpgp

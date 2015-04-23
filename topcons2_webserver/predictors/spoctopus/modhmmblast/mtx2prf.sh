@@ -6,11 +6,15 @@ if [ ${#3} -lt 1 ]; then
     exit
 fi
 
+TMPPATH=/tmp
+if [ -d /scratch ]; then
+    TMPPATH=/scratch
+fi
 
 ####### hard coded directories and progs###########
 modhmmblastdir=modhmmblast
 ################################################
-workingdir=`/bin/mktemp -d /tmp/run_mtx2prf_XXXXXXXXXX` || exit 1
+workingdir=`/bin/mktemp -d $TMPPATH/run_mtx2prf_XXXXXXXXXX` || exit 1
 
 
 
