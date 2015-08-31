@@ -22,6 +22,7 @@ Usage: %s inFile out_path blastDir blastDB
 
 rundir = os.path.dirname(os.path.realpath(__file__))
 basedir = os.path.realpath("%s/../"%(rundir))  #path to topcons2_webserver
+os.environ['TOPCONS2'] = basedir
 
 
 def main(args):
