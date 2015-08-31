@@ -7,6 +7,9 @@ This is the standalone version of web-server http://topcons.net
 This software package is supposed to be run on Ubuntu x64 system.
 It might also work on other Linux boxes but have not been tested.
 
+If you are interested in running TOPCONS2 on other systems, please contact
+Arne Eloffson (arne@bioinfo.se)
+
 Installation and usage:
 
 1. Check out the software from the github by
