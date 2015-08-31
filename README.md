@@ -8,7 +8,7 @@ This software package is supposed to be run on Ubuntu x64 system.
 It might also work on other Linux boxes but have not been tested.
 
 If you are interested in running TOPCONS2 on other systems, please contact
-Arne Eloffson (arne@bioinfo.se)
+Arne Elofsson (arne@bioinfo.se)
 
 Installation and usage:
 
