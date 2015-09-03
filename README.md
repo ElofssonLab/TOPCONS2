@@ -49,7 +49,7 @@ Arne Elofsson (arne@bioinfo.se)
 * Description of the output results
     If the input contains one sequence and the out_path is "one_seq"
     The tree view of all output files will be
-    ```
+
     <pre>
     one_seq
     |-- seq_0              # if there are more than one sequence in the input
@@ -80,5 +80,4 @@ Arne Elofsson (arne@bioinfo.se)
     |   `-- seq.fa
     `-- time.txt
     </pre>
-    ```
 
