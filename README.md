@@ -1,6 +1,3 @@
-# TOPCONS2
-========
-
 ## Github for the TOPCONS2
 
 This is the standalone version of web-server http://topcons.net.
@@ -14,7 +11,7 @@ Arne Elofsson (arne@bioinfo.se)
 
 1. Check out the software from the github by
 
-    $ git clone https://github.com/ElofssonLab/TOPCONS2
+    `$ git clone https://github.com/ElofssonLab/TOPCONS2`
 
 2. Download the database for TOPCONS2 from
     http://topcons.net/static/download/topcons2_database.zip
@@ -39,11 +36,11 @@ Arne Elofsson (arne@bioinfo.se)
 5. Test the topcons2 workflow
 
    change to the folder 'topcons2_webserver/test'
-   run the following commands 
+   and run the following commands 
 
-    $ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+    `$ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
 
-    $ ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+    `$ ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
 
    The example results can be found in the folder 'rst_one_seq' and
    'rst_multiple_seqs' for the example fasta file one_seq.fasta and
@@ -53,6 +50,7 @@ Arne Elofsson (arne@bioinfo.se)
     If the input contains one sequence and the out_path is "one_seq"
     The tree view of all output files will be
     ```
+    <pre>
     one_seq
     |-- seq_0              # if there are more than one sequence in the input
                            # file, the subfolders will be named as seq_1, seq_2 ...
@@ -81,5 +79,6 @@ Arne Elofsson (arne@bioinfo.se)
     |   |   `-- query.top
     |   `-- seq.fa
     `-- time.txt
+    </pre>
     ```
 
