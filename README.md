@@ -19,6 +19,7 @@ Installation and usage:
 2. Download the database for TOPCONS2 from
     http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
+
     $ unzip topcons2.0_database.zip
 
 3. Change to the folder 'topcons2_webserver' and create a soft link to the
