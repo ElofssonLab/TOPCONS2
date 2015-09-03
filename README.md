@@ -3,7 +3,7 @@ TOPCONS2
 
 Github for the TOPCONS2
 
-This is the standalone version of web-server http://topcons.net
+This is the standalone version of web-server http://topcons.net.
 This software package is supposed to be run on Ubuntu x64 system.
 It might also work on other Linux boxes but have not been tested.
 
@@ -21,7 +21,7 @@ Installation and usage:
    and unzip it by 
     $ unzip topcons2.0_database.zip
 
-3. Change to the folder topcons2_webserver and create a soft link to the
+3. Change to the folder 'topcons2_webserver' and create a soft link to the
    downloaded database
     $ ln -s /path/to/the/downloaded/database database
 
@@ -33,10 +33,13 @@ Installation and usage:
     e)    hmmer3.0   (note that hmmscan should be compatible with the pfam database
                       otherwise, you may encounter format incompatible problem)
 
-5. Test topcons2 workflow
-   change to the folder test
+5. Test the topcons2 workflow
+   change to the folder 'topcons2_webserver/test'
    run the command
 
-    $ ../workflow/pfam_workflow.py t1.fa myout1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+    $ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+    $ ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
 
-   You will find the results in the folder myout1
+   The example results can be found in the folder 'rst_one_seq' and
+   'rst_multiple_seqs' for the example fasta file one_seq.fasta and
+   multiple_seqs.fasta respectively
