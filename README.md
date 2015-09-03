@@ -1,4 +1,4 @@
-## Github for the TOPCONS2
+## TOPCONS2
 
 This is the standalone version of web-server http://topcons.net.
 This software package is supposed to be run on Ubuntu x64 system.
@@ -6,6 +6,21 @@ It might also work on other Linux boxes but have not been tested.
 
 If you are interested in running TOPCONS2 on other systems, please contact
 Arne Elofsson (arne@bioinfo.se)
+
+## Description
+
+TOPCONS2 is an updated version of the widely used TOPCONS for predicting
+membrane protein topologies using consensus prediction.  It is faster yet
+more accurate than the old TOPCONS according to our solid benchmarking.
+Moreover, it predicts not only the trans-membrane helices, but also the
+location of signal peptide
+
+TOPCONS2 may be used for the purpose of academic research only.
+
+## Reference
+Tsirigos, K.D., Peters, C., Shu, N., Kall, L., Elofsson, A., 2015. The TOPCONS
+web server for consensus prediction of membrane protein topology and signal
+peptides. Nucleic Acids Res. 43, W401-W407
 
 ## Installation and usage:
 
