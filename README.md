@@ -17,7 +17,7 @@ Installation and usage:
     $ git clone https://github.com/ElofssonLab/TOPCONS2
 
 2. Download the database for TOPCONS2 from
-    http://topcons.net/static/download/topcons2.0_database.zip
+    http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
     $ unzip topcons2.0_database.zip
 
