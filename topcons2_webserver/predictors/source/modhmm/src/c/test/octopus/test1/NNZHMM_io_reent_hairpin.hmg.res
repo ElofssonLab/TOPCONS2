@@ -1,0 +1,11 @@
+# Scores for HMM: 'NNZHMM_io_reent_hairpin.hmg'
+
+query.prf
+Seq length: 250
+Labeling:
+ooooooooooooooooMMMMMMMMMMMMMMMMMMMMMiiiiiiiiiiiMMMMMMMMMMMM
+MMMMMMMMMooooooooooooooooooooMMMMMMMMMMMMMMMMMMMMMiiiiMMMMMM
+MMMMMMMMMMMMMMMooooooMMMMMMMMMMMMMMMMMMMMMiiiiiiiiiiiiiiiiiM
+MMMMMMMMMMMMMMMMMMMMooooooooooMMMMMMMMMMMMMMMMMMMMMiiiiiiiii
+iiiiiiiiii
+

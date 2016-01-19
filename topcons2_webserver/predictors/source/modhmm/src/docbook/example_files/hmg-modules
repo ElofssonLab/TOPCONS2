@@ -1,0 +1,15 @@
+Module: module1
+Type: Singlenode
+NrVertices: 1
+Emission prior file: ./amino.pri
+Transition prior file: null
+
+Vertex 70:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+.
+.
+.
+
+-------------------------------------------------------

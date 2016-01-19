@@ -1,0 +1,8 @@
+To push out the homepage to http://modhmm.sourceforge.net, do these commands. Replace eriksjolund with your user name. Of course you need to have the correct permissions too.
+
+mkdir /tmp/install
+rm -rf /tmp/build/* && cmake -DCMAKE_INSTALL_PREFIX=/tmp/install  -DBUILD_DOCBOOK=ON -DWITH_LIBXML=OFF /tmp/modhmm/modhmmts/trunk/ && make && make install
+rsync -ave ssh /tmp/install/share/doc/modhmm/ eriksjolund,modhmm@web.sourceforge.net:/home/groups/m/mo/modhmm/htdocs
+
+
+If we start using libxml we will need to have -DWITH_LIBXML=ON.

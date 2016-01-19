@@ -1,0 +1,33 @@
+#Nr of alphabets
+2
+
+# Alphabet size
+20
+
+# Alphabet
+A;C;D;E;F;G;H;I;K;L;M;N;P;Q;R;S;T;V;W;Y;
+
+# Matrix letters
+A = A:1.0 C:0.0 D:0.0 E:0.0 F:0.0 ...
+C = A:0.0 C:1.0 D:0.0 E:0.0 F:0.0 ...
+D = A:0.0 C:0.0 D:1.0 E:1.0 F:0.0 ...
+E = A:0.0 C:0.0 D:1.0 E:1.0 F:0.0 ...
+F = A:0.0 C:0.0 D:0.0 E:0.0 F:1.0 ...
+G = A:0.0 C:0.0 D:0.0 E:0.0 F:0.0 ...
+H = A:0.0 C:0.0 D:0.0 E:0.0 F:0.0 ...
+.
+.
+.
+X = A:0.05 C:0.05 D:0.05 E:0.05 ...
+
+#Alphabet 2 size
+3
+
+#Alphabet 2
+s;h:e;
+
+# Matrix letters 2
+s = s:1.0 h:0.0 e:0.0
+h = s:0.0 h:1.0 e:0.0
+e = s:0.0 h:0.0 e:1.0
+x = s_0.33 h: 0.33 e :0.34

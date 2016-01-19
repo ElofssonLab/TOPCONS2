@@ -1,0 +1,2 @@
+#!/bin/sh
+@xsltproc_EXECUTABLE@ @CMAKE_INSTALL_PREFIX@/share/modhmm/xslt/xml2top.xsl -

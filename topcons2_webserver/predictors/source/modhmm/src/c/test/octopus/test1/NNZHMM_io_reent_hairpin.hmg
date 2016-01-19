@@ -1,0 +1,3881 @@
+***********************Header*****************************
+NAME: NNZHMM_io_reent_hairpin
+TIME OF CREATION: Mar 12, 2008 2:15:00 PM
+NR OF ALPHABETS: 2
+ALPHABET 1: M;L;G;I;
+ALPHABET LENGTH 1: 4
+ALPHABET 2: i;o;
+ALPHABET LENGTH 2: 2
+NR OF MODULES: 12
+NR OF VERTICES: 160
+NR OF TRANSITIONS: 234
+NR OF DISTRIBUTION GROUPS: 4
+NR OF TRANSITION TIE GROUPS: 0
+NR OF EMISSION PRIORFILES 1: 0
+EMISSION PRIORFILES_1: 
+NR OF EMISSION PRIORFILES 2: 0
+EMISSION PRIORFILES_2: 
+NR OF TRANSITION PRIORFILES: 0
+TRANSITION PRIORFILES: 
+
+
+***********************Modules****************************
+Module: s
+Type: Singlenode
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 0:
+Vertex type: start
+Vertex label: 0
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 4
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 1: 1.0
+	Vertex 2: 1.0
+	Vertex 3: 1.0
+	Vertex 4: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.0
+	o: 0.0
+
+-------------------------------------------------------
+Module: Gi
+Type: Singleloop
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 1:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 2
+Nr end transitions = 1
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 1: 1.0
+	Vertex 2: 0.001
+End transition probabilities
+	Vertex 159: 1.0
+Emission probabilities 1
+	M: 0.0
+	L: 0.0
+	G: 1.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: Li
+Type: Singleloop
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 2:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 5
+Nr end transitions = 1
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 2: 1.0
+	Vertex 1: 1.0
+	Vertex 5: 1.0
+	Vertex 145: 1.0
+	Vertex 75: 1.0
+End transition probabilities
+	Vertex 159: 1.0
+Emission probabilities 1
+	M: 0.0
+	L: 1.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: Go
+Type: Singleloop
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 3:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 2
+Nr end transitions = 1
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 3: 1.0
+	Vertex 4: 0.001
+End transition probabilities
+	Vertex 159: 1.0
+Emission probabilities 1
+	M: 0.0
+	L: 0.0
+	G: 1.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: Lo
+Type: Singleloop
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 4:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 5
+Nr end transitions = 1
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 4: 1.0
+	Vertex 3: 1.0
+	Vertex 40: 1.0
+	Vertex 110: 1.0
+	Vertex 152: 1.0
+End transition probabilities
+	Vertex 159: 1.0
+Emission probabilities 1
+	M: 0.0
+	L: 1.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: OTM
+Type: Forward_std
+NrVertices: 35
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 5:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 6: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 6:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 7: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 7:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 8: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 8:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 9: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 9:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 10: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 10:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 11: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 11:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 12: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 12:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 13: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 13:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 14: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 14:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 15: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 15:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 16: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 16:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 17: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 17:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 18: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 18:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 19: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 19:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 20: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 20:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 21: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 21:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 22: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 22:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 23: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 23:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 24: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 24:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 15
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 25: 0.0
+	Vertex 26: 0.0
+	Vertex 27: 0.0
+	Vertex 28: 0.0
+	Vertex 29: 1.0
+	Vertex 30: 0.0
+	Vertex 31: 0.0
+	Vertex 32: 0.0
+	Vertex 33: 0.0
+	Vertex 34: 0.0
+	Vertex 35: 0.0
+	Vertex 36: 0.0
+	Vertex 37: 0.0
+	Vertex 38: 0.0
+	Vertex 39: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 25:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 26: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 26:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 27: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 27:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 28: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 28:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 29: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 29:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 30: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 30:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 31: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 31:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 32: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 32:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 33: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 33:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 34: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 34:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 35: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 35:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 36: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 36:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 37: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 37:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 38: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 38:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 39: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 39:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 4: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: ITM
+Type: Forward_std
+NrVertices: 35
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 40:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 41: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 41:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 42: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 42:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 43: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 43:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 44: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 44:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 45: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 45:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 46: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 46:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 47: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 47:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 48: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 48:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 49: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 49:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 50: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 50:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 51: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 51:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 52: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 52:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 53: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 53:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 54: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 54:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 55: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 55:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 56: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 56:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 57: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 57:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 58: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 58:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 59: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 59:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 15
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 60: 0.0
+	Vertex 61: 0.0
+	Vertex 62: 0.0
+	Vertex 63: 0.0
+	Vertex 64: 1.0
+	Vertex 65: 0.0
+	Vertex 66: 0.0
+	Vertex 67: 0.0
+	Vertex 68: 0.0
+	Vertex 69: 0.0
+	Vertex 70: 0.0
+	Vertex 71: 0.0
+	Vertex 72: 0.0
+	Vertex 73: 0.0
+	Vertex 74: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 60:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 61: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 61:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 62: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 62:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 63: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 63:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 64: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 64:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 65: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 65:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 66: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 66:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 67: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 67:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 68: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 68:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 69: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 69:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 70: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 70:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 71: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 71:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 72: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 72:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 73: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 73:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 74: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 74:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 2: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: IINTERFACE
+Type: Forward_std
+NrVertices: 35
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 75:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 76: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 76:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 77: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 77:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 78: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 78:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 79: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 79:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 80: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 80:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 81: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 81:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 82: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 82:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 83: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 83:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 84: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 84:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 85: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 85:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 86: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 86:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 87: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 87:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 88: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 88:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 89: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 89:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 90: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 90:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 91: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 91:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 92: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 92:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 93: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 93:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 94: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 94:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 15
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 95: 0.0
+	Vertex 96: 0.0
+	Vertex 97: 0.0
+	Vertex 98: 0.0
+	Vertex 99: 1.0
+	Vertex 100: 0.0
+	Vertex 101: 0.0
+	Vertex 102: 0.0
+	Vertex 103: 0.0
+	Vertex 104: 0.0
+	Vertex 105: 0.0
+	Vertex 106: 0.0
+	Vertex 107: 0.0
+	Vertex 108: 0.0
+	Vertex 109: 0.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 95:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 96: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 96:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 97: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 97:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 98: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 98:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 99: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 99:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 100: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 100:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 101: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 101:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 102: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 102:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 103: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 103:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 104: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 104:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 105: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 105:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 106: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 106:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 107: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 107:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 108: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 108:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 109: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 109:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 2: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: OINTERFACE
+Type: Forward_std
+NrVertices: 35
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 110:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 111: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 111:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 112: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 112:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 113: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 113:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 114: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 114:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 115: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 115:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 116: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 116:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 117: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 117:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 118: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 118:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 119: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 119:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 120: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 120:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 121: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 121:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 122: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 122:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 123: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 123:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 124: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 124:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 125: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 125:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 126: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 126:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 127: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 127:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 128: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 128:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 129: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 129:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 15
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 130: 0.0
+	Vertex 131: 0.0
+	Vertex 132: 0.0
+	Vertex 133: 0.0
+	Vertex 134: 1.0
+	Vertex 135: 0.0
+	Vertex 136: 0.0
+	Vertex 137: 0.0
+	Vertex 138: 0.0
+	Vertex 139: 0.0
+	Vertex 140: 0.0
+	Vertex 141: 0.0
+	Vertex 142: 0.0
+	Vertex 143: 0.0
+	Vertex 144: 0.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 130:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 131: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 131:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 132: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 132:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 133: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 133:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 134: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 134:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 135: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 135:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 136: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 136:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 137: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 137:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 138: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 138:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 139: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 139:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 140: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 140:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 141: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 141:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 142: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 142:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 143: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 143:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 144: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 144:
+Vertex type: standard
+Vertex label: M
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 4: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 1.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: IREENT
+Type: Highway
+NrVertices: 7
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 145:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 146: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 146:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 147: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 147:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 148: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 148:
+Vertex type: standard
+Vertex label: r
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 2
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 148: 1.0
+	Vertex 149: 0.2
+End transition probabilities
+Emission probabilities 1
+	M: 0.3
+	L: 0.0
+	G: 0.0
+	I: 0.7
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 149:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 150: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 150:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 151: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 151:
+Vertex type: standard
+Vertex label: i
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 2: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: OREENT
+Type: Highway
+NrVertices: 7
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 152:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 153: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 153:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 154: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 154:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 155: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 155:
+Vertex type: standard
+Vertex label: R
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 2
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 155: 1.0
+	Vertex 156: 0.2
+End transition probabilities
+Emission probabilities 1
+	M: 0.3
+	L: 0.0
+	G: 0.0
+	I: 0.7
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 156:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 157: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 157:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 158: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+Vertex 158:
+Vertex type: standard
+Vertex label: o
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 1
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+	Vertex 4: 1.0
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.99
+	G: 0.0
+	I: 0.01
+
+Emission probabilities 2
+	i: 0.5
+	o: 0.5
+
+-------------------------------------------------------
+Module: e
+Type: Singlenode
+NrVertices: 1
+Emission prior file 1: null
+Emission prior file 2: null
+Transition prior file: null
+
+Vertex 159:
+Vertex type: end
+Vertex label: 0
+Transition prior scaler: 1.0
+Emission prior scaler 1: 1.0
+Emission prior scaler 2: 1.0
+Nr transitions = 0
+Nr end transitions = 0
+Nr emissions 1 = 4
+Nr emissions 2 = 2
+Transition probabilities
+End transition probabilities
+Emission probabilities 1
+	M: 0.0
+	L: 0.0
+	G: 0.0
+	I: 0.0
+
+Emission probabilities 2
+	i: 0.0
+	o: 0.0
+
+-------------------------------------------------------
+
+***************Emission distribution groups******************
+Group 1: 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 
+Group 2: 1 3 
+Group 3: 2 4 
+Group 4: 145 146 147 148 149 150 151 152 153 154 155 156 157 158 
+
+***************Transition tie groups******************
+

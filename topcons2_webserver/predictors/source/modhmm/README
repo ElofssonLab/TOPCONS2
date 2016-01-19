@@ -1,0 +1,24 @@
+To install cmake is needed. Cmake can be downloaded from http://www.cmake.org/HTML/Download.html.
+gengetopt version 2.22 is also needed 
+
+
+For installation of modhmm:
+
+mkdir /tmp/build
+cd /tmp/build
+cmake -D CMAKE_INSTALL_PREFIX=/my/install/dir  /this/source/dir
+make
+make install
+
+
+
+
+
+
+Directory layout
+
+src/blastscripts    --   blastparsing scripts
+src/c               --   modhmmt, modhmms
+src/data            --   replacement matrix
+src/docbook         --   documentation
+src/java            --   modhmmc
