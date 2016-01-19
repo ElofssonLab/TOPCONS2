@@ -49,7 +49,9 @@ peptides. Nucleic Acids Res. 43, W401-W407
     *    hmmer3.0   (note that hmmscan should be compatible with the pfam database
                      otherwise, you may encounter format incompatible problem)
 5. Install modhmm
+
    change to the folder 'topcons2_webserver/predictors/source/modhmm'
+
    `$ bash fresh_install.sh /path/to/topcons2_webserver`
 
 6. Test the topcons2 workflow
