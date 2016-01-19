@@ -41,14 +41,18 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
 4. Install dependencies if not installed
 
+    *    Cmake      (for installation of modhmm)
     *    perl-Moose (e.g. sudo apt-get install perl-Moose)
     *    bioperl    (e.g. cpan > install  CJFIELDS/BioPerl-1.6.924.tar.gz )
     *    IPC        (e.g. cpan > install IPC::Run)
     *    kalign     (e.g. sudo apt-get install kalign2)
     *    hmmer3.0   (note that hmmscan should be compatible with the pfam database
                      otherwise, you may encounter format incompatible problem)
+5. Install modhmm
+   change to the folder 'topcons2_webserver/predictors/source/modhmm'
+   `$ bash fresh_install.sh /path/to/topcons2_webserver`
 
-5. Test the topcons2 workflow
+6. Test the topcons2 workflow
 
    change to the folder 'topcons2_webserver/test'
    and run the following commands 
