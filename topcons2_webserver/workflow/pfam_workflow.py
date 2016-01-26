@@ -8,7 +8,6 @@ import subprocess
 import module_locator
 import ntpath
 
-DEBUG=True
 
 TMPPATH="/tmp"
 if os.path.exists("/scratch"):
@@ -17,7 +16,7 @@ if os.path.exists("/scratch"):
 # it seems apache on centos does not like /usr/local/bin
 # /usr/local/bin can not be added to path
 usage="""
-Usage: %s inFile out_path blastDir blastDB
+Usage: %s inFile out_path blastDir blastDB [-debug]
 """%(sys.argv[0])
 
 rundir = os.path.dirname(os.path.realpath(__file__))
@@ -25,7 +24,7 @@ basedir = os.path.realpath("%s/../"%(rundir))  #path to topcons2_webserver
 os.environ['TOPCONS2'] = basedir
 
 
-def main(args):
+def main(args, g_params):
     try:
         inFile = os.path.realpath(args[1])
         out_path= os.path.realpath(args[2]) + os.sep
@@ -36,6 +35,14 @@ def main(args):
         print usage
         sys.exit(1)
 
+    try:
+        altarg = args[5]
+        if altarg.lower() == "-debug":
+            g_params['DEBUG'] = True
+    except IndexError:
+        pass
+
+    DEBUG = g_params['DEBUG']
     if not os.path.exists(inFile):
         print >> sys.stderr, "inFile %s does not exist. Exit."%(inFile)
         sys.exit(1)
@@ -358,4 +365,6 @@ def main(args):
 
 
 if __name__=="__main__":
-    sys.exit(main(sys.argv))
+    g_params = {}
+    g_params['DEBUG'] = False
+    sys.exit(main(sys.argv, g_params))
