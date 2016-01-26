@@ -72,33 +72,42 @@ peptides. Nucleic Acids Res. 43, W401-W407
     The tree view of all output files will be
 
     <pre>
-    one_seq
-    |-- seq_0              # if there are more than one sequence in the input
-                           # file, the subfolders will be named as seq_1, seq_2 ...
-    |   |-- DG1.txt
-    |   |-- OCTOPUS
-    |   |   `-- query.top
-    |   |-- PolyPhobius
-    |   |   `-- query.top
-    |   |-- SCAMPI_MSA
-    |   |   `-- query.top
-    |   |-- SPOCTOPUS
-    |   |   `-- query.top
-    |   |-- Topcons
-    |   |   |-- reliability.final
-    |   |   |-- reliability.txt
-    |   |   |-- topcons.gnu
-    |   |   |-- topcons.large.png
-    |   |   |-- topcons.png
-    |   |   |-- topcons.top          # the predicted topology for TOPCONS
-    |   |   |-- total_image.gnu
-    |   |   |-- total_image.large.png
-    |   |   `-- total_image.png
-    |   |-- dg.txt
-    |   |-- nicetop.html
-    |   |-- philius
-    |   |   `-- query.top
-    |   `-- seq.fa
-    `-- time.txt
+    one_seq/
+    ├── seq_0              # if there are more than one sequence in the input
+    │   │                  # file, the subfolders will be named as seq_1, seq_2 ... 
+    │   ├── DG1.txt
+    │   ├── Homology
+    │   │   ├── query.fa.total_aligns
+    │   │   └── query.top
+    │   ├── OCTOPUS
+    │   │   ├── NN_PRF_FILES
+    │   │   │   └── query.prf  # Detailed network prediction for OCTOPUS
+    │   │   └── query.top
+    │   ├── PolyPhobius
+    │   │   └── query.top
+    │   ├── SCAMPI_MSA
+    │   │   └── query.top
+    │   ├── SPOCTOPUS
+    │   │   ├── NN_PRF_FILES
+    │   │   │   └── query.nnprf
+    │   │   └── query.top
+    │   ├── Topcons
+    │   │   ├── reliability.final
+    │   │   ├── reliability.txt
+    │   │   ├── topcons.gnu
+    │   │   ├── topcons.large.png
+    │   │   ├── topcons.png
+    │   │   ├── topcons.top       # the predicted topology for TOPCONS
+    │   │   ├── total_image.gnu
+    │   │   ├── total_image.large.png
+    │   │   └── total_image.png
+    │   ├── dg.txt
+    │   ├── nicetop.html
+    │   ├── philius
+    │   │   └── query.top
+    │   ├── query.result.txt
+    │   ├── seq.fa
+    │   └── time.txt
+
     </pre>
 
