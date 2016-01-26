@@ -47,9 +47,9 @@ workingdir=`/bin/mktemp -d $TMPPATH/OCTOPUS_XXXXXXXXXX` || exit 1
 /bin/mkdir $workingdir/PREDICTED_DETAILED_TOPOLOGY_FILES
 /bin/mkdir $workingdir/SEQNAMEFILES
 
-#if [ ${#N} -gt 0 ]; then
-#    /bin/mkdir $outdir/NN_PRF_FILES
-#fi
+if [ ${#N} -gt 0 ]; then
+    /bin/mkdir -p $outdir/NN_PRF_FILES
+fi
 
 #/bin/echo `/bin/date +"%T %N"` "Split seqname file" >> $timefile;
 /usr/bin/perl $octopusdir/bin/splitseqfile.pl $protnamefile $workingdir/SEQNAMEFILES > /dev/null
@@ -60,12 +60,12 @@ workingdir=`/bin/mktemp -d $TMPPATH/OCTOPUS_XXXXXXXXXX` || exit 1
 
 #/bin/echo `/bin/date +"%T %N"` "Back to OCTOPUS: copy result files to outdir" >> $timefile;
 /bin/cat $protnamefile | /usr/bin/xargs -I xxx /bin/cp $workingdir/DETAILED_TOPOLOGY_FILES_final/xxx.top ${outdir}/OCTOPUS.top.tmp
-mkdir ${outdir}/OCTOPUS/ > /dev/null
-perl oneline.pl ${outdir}/OCTOPUS.top.tmp > ${outdir}/OCTOPUS/query.top
+#mkdir -p ${outdir}/OCTOPUS/ > /dev/null
+perl oneline.pl ${outdir}/OCTOPUS.top.tmp > ${outdir}/query.top
 rm ${outdir}/OCTOPUS.top.tmp
 
 if [ ${#N} -gt 0 ]; then
-    /bin/cat $protnamefile | /usr/bin/xargs -I xxx /bin/cp $workingdir/HMM_PROFILES_2_ALPHA_lonely_revised/xxx.nnprf ${outdir}/NN_PRF_FILES/
+    /bin/cat $protnamefile | /usr/bin/xargs -I xxx /bin/cp $workingdir/HMM_PROFILES_2_ALPHA_lonely_revised/xxx.prf ${outdir}/NN_PRF_FILES/
 fi
 if [ ${#D} -gt 0 ]; then
     #/bin/echo `/bin/date +"%T %N"` "Debug: Copy tempdir files to outdir" >> $timefile;

@@ -8,7 +8,7 @@ import subprocess
 import module_locator
 import ntpath
 
-DEBUG=False
+DEBUG=True
 
 TMPPATH="/tmp"
 if os.path.exists("/scratch"):
@@ -198,7 +198,10 @@ def main(args):
                 os.chdir(startDir)
 
                 os.chdir(os.path.abspath("../predictors/spoctopus/"))
-                cmd = ["./SPOCTOPUS.sh", protnamefile ,tmpDir + "PSSM_PRF_FILES/", tmpDir + "RAW_PRF_FILES/", outDir]
+                outDir_SPOCTOPUS = outDir + os.sep + "SPOCTOPUS"
+                if not os.path.exists(outDir_SPOCTOPUS):
+                    os.makedirs(outDir_SPOCTOPUS)
+                cmd = ["./SPOCTOPUS.sh", protnamefile ,tmpDir + "PSSM_PRF_FILES/", tmpDir + "RAW_PRF_FILES/", outDir_SPOCTOPUS, "-N"] #output also the ANN result for SPOCTOPUS, changed 2016-01-26
                 cmdline = " ".join(cmd)
                 if DEBUG:
                     print "cmdline:", cmdline
@@ -206,7 +209,10 @@ def main(args):
                 os.chdir(startDir)
 
                 os.chdir(os.path.abspath("../predictors/spoctopus/"))
-                cmd =  ["./OCTOPUS.sh", protnamefile,tmpDir + "PSSM_PRF_FILES/", tmpDir + "RAW_PRF_FILES/", outDir]
+                outDir_OCTOPUS = outDir + os.sep + "OCTOPUS"
+                if not os.path.exists(outDir_OCTOPUS):
+                    os.makedirs(outDir_OCTOPUS)
+                cmd =  ["./OCTOPUS.sh", protnamefile,tmpDir + "PSSM_PRF_FILES/", tmpDir + "RAW_PRF_FILES/", outDir_OCTOPUS, "-N"] #output also the ANN result for OCTOPUS, changed 2016-01-26
                 cmdline = " ".join(cmd)
                 if DEBUG:
                     print "cmdline:", cmdline
