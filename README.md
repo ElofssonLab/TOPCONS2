@@ -48,6 +48,13 @@ peptides. Nucleic Acids Res. 43, W401-W407
     *    kalign     (e.g. sudo apt-get install kalign2)
     *    hmmer3.0   (note that hmmscan should be compatible with the pfam database
                      otherwise, you may encounter format incompatible problem)
+    *    Gnuplot
+    *    convert from ImageMagic
+    *    awk, sort, head
+
+    Note that the commands hmmscan, kalign, gnuplot, convert, sort, awk and
+    head should be in the PATH
+
 5. Install modhmm
 
    change to the folder 'topcons2_webserver/predictors/source/modhmm'

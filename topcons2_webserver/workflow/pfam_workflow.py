@@ -53,6 +53,13 @@ def main(args, g_params):
             print >> sys.stderr, "Failed to create out_path %s. Exit."%(out_path)
             sys.exit(1)
 
+    if not "BLASTDB" in os.environ: # this fixed the warning message of unset 'BLASTDB'
+        try:
+            blastdbpath = os.path.realpath(os.path.dirname(blastDB))
+            os.environ['BLASTDB'] = blastdbpath
+        except:
+            pass
+
     # Set the working dir to the script location
     my_path = module_locator.module_path()
     os.chdir(my_path)
