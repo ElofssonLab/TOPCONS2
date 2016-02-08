@@ -19,11 +19,6 @@ my $convert = "convert";
 my $sort = "sort";
 my $awk = "awk";
 my $head="head";
-`unalias gnuplot`;
-`unalias convert`;
-`unalias sort`;
-`unalias awk`;
-`unalias head`;
 
 $ENV{'GDFONTPATH'}='./fonts/';
 my $res_folder = $ARGV[0] . "/";  #provide this from the command line, contains all sub-folders for various prediction methods
