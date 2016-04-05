@@ -119,7 +119,7 @@ peptides. Nucleic Acids Res. 43, W401-W407
     </pre>
 
 
-##Run only the sub-predictor OCTOPUS and SPOCTOPUS
+##Run only the sub-predictors OCTOPUS and SPOCTOPUS
 If you only need to run OCTOPUS and SPOCTOPUS within the TOPCONS2 package, you
 need to install the whole package using the procedure described above for
 TOPCONS2. Then, use the script `pfam_workflow_octopus.py`.
