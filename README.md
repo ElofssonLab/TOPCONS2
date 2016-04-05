@@ -125,14 +125,14 @@ need to install the whole package using the procedure described above for
 TOPCONS2. Then, use the script `pfam_workflow_octopus.py`.
 
 Examples:
-   change to the folder 'topcons2_webserver/test' and run the following commands 
+change to the folder 'topcons2_webserver/test' and run the following commands 
 
     `$ ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
 
-    The result of predicted topologies in Fasta format can be found in
-    `rst1/multiple_seqs.OCTOPUS.topfa` and  `rst1/multiple_seqs.SPOCTOPUS.topfa`
+The result of predicted topologies in Fasta format can be found in
+`rst1/multiple_seqs.OCTOPUS.topfa` and  `rst1/multiple_seqs.SPOCTOPUS.topfa`
 
-    If you do not need the individual output files nor the ANN output, you can
-    run the commands with the "-remove-individual-files" flag, that is
+If you do not need the individual output files nor the ANN output, you can
+run the commands with the "-remove-individual-files" flag, that is
 
     `$ ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta -remove-individual-files`
