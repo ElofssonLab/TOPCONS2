@@ -1761,3 +1761,14 @@ def PosTM2Topo(posTM, seqLength, NtermState):#{{{
     top = "".join(topList)
     return top
 #}}}
+def ReadFile(infile, mode="r"):#{{{
+    try:
+        fpin = open(infile, mode)
+        content = fpin.read()
+        fpin.close()
+        return content
+    except IOError:
+        print >> sys.stderr, "Failed to read file %s with mode '%s'"%(infile,
+                mode)
+        return ""
+#}}}

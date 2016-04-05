@@ -15,7 +15,7 @@ more accurate than the old TOPCONS according to our solid benchmarking.
 Moreover, it predicts not only the trans-membrane helices, but also the
 location of signal peptide
 
-TOPCONS2 may be used for the purpose of academic research only.
+The software is open source and licensed under the GPL license.
 
 ## Reference
 Tsirigos, K.D., Peters, C., Shu, N., Kall, L., Elofsson, A., 2015. The TOPCONS
@@ -118,3 +118,21 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     </pre>
 
+
+##Run only the sub-predictor OCTOPUS and SPOCTOPUS
+If you only need to run OCTOPUS and SPOCTOPUS within the TOPCONS2 package, you
+need to install the whole package using the procedure described above for
+TOPCONS2. Then, use the script `pfam_workflow_octopus.py`.
+
+Examples:
+   change to the folder 'topcons2_webserver/test' and run the following commands 
+
+    `$ ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
+
+    The result of predicted topologies in Fasta format can be found in
+    `rst1/multiple_seqs.OCTOPUS.topfa` and  `rst1/multiple_seqs.SPOCTOPUS.topfa`
+
+    If you do not need the individual output files nor the ANN output, you can
+    run the commands with the "-remove-individual-files" flag, that is
+
+    `$ ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta -remove-individual-files`
