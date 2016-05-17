@@ -44,6 +44,7 @@ peptides. Nucleic Acids Res. 43, W401-W407
     *    Cmake      (for installation of modhmm)
     *    perl-Moose (e.g. sudo apt-get install perl-Moose)
     *    bioperl    (e.g. cpan > install  CJFIELDS/BioPerl-1.6.924.tar.gz )
+    *    biopython  (e.g. sudo pip install biopython )
     *    IPC        (e.g. cpan > install IPC::Run)
     *    kalign     (e.g. sudo apt-get install kalign2)
     *    hmmer3.0   (note that hmmscan should be compatible with the pfam database
