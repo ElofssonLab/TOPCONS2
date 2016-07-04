@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/xsltproc $TOPCONS2/predictors/modhmm/share/modhmm/xslt/xml2res.xsl -
