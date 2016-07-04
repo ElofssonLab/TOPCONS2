@@ -60,7 +60,7 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
    change to the folder 'topcons2_webserver/predictors/source/modhmm'
 
-   `$ bash fresh_install.sh /path/to/topcons2_webserver`
+   `$ bash fresh_install.sh /path/to/topcons2_webserver/predictors`
 
 6. Test the topcons2 workflow
 
