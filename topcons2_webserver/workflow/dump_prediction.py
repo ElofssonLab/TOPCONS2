@@ -104,30 +104,30 @@ def DumpPredictionTOPCONS2(seqfile, path_result, outfile, isWriteDG, isWriteRel)
             else:
                 print >> fpout, "%s predicted topology:\n%s\n\n"%(method, top)
 
-            if isWriteDG:
-                dgfile = "%s/dg.txt"%(subdir)
-                dg_content = ""
-                if os.path.exists(dgfile):
-                    dg_content = myfunc.ReadFile(dgfile)
-                lines = dg_content.split("\n")
-                dglines = []
-                for line in lines:
-                    if line and line[0].isdigit():
-                        dglines.append(line)
-                if len(dglines)>0:
-                    print >> fpout,  "\nPredicted Delta-G-values (kcal/mol) "\
-                            "(left column=sequence position; right column=Delta-G)\n"
-                    print >> fpout, "\n".join(dglines)
+        if isWriteDG:
+            dgfile = "%s/dg.txt"%(subdir)
+            dg_content = ""
+            if os.path.exists(dgfile):
+                dg_content = myfunc.ReadFile(dgfile)
+            lines = dg_content.split("\n")
+            dglines = []
+            for line in lines:
+                if line and line[0].isdigit():
+                    dglines.append(line)
+            if len(dglines)>0:
+                print >> fpout,  "\nPredicted Delta-G-values (kcal/mol) "\
+                        "(left column=sequence position; right column=Delta-G)\n"
+                print >> fpout, "\n".join(dglines)
 
-            if isWriteRel:
-                reliability_file = "%s/Topcons/reliability.txt"%(subdir)
-                reliability = ""
-                if os.path.exists(reliability_file):
-                    reliability = myfunc.ReadFile(reliability_file)
-                if reliability != "":
-                    print >> fpout, "\nPredicted TOPCONS reliability (left "\
-                            "column=sequence position; right column=reliability)\n"
-                    print >> fpout, reliability
+        if isWriteRel:
+            reliability_file = "%s/Topcons/reliability.txt"%(subdir)
+            reliability = ""
+            if os.path.exists(reliability_file):
+                reliability = myfunc.ReadFile(reliability_file)
+            if reliability != "":
+                print >> fpout, "\nPredicted TOPCONS reliability (left "\
+                        "column=sequence position; right column=reliability)\n"
+                print >> fpout, reliability
 
         print >> fpout, "##############################################################################"
 
