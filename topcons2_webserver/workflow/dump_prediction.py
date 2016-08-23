@@ -137,6 +137,17 @@ def DumpPredictionTOPCONS2(seqfile, path_result, outfile, isWriteDG, isWriteRel)
         print >> fpout_fa, ">%s"%(desp)
         print >> fpout_fa, topo_consensus
 
+    if fpout:
+        try:
+            fpout.close()
+        except IOError:
+            pass
+    if fpout_fa:
+        try:
+            fpout_fa.close()
+        except IOError:
+            pass
+
     return 0
 
 #}}}
@@ -180,7 +191,7 @@ def main(g_params):#{{{
             posArgList.append(argv[i])
             if len(posArgList) > 3:
                 print >> sys.stderr, "Error! Two many positional arguments. Exit!"
-                print >> fpout, usage_short
+                print >> sys.stdout, usage_short
                 return 1
             i += 1
 
