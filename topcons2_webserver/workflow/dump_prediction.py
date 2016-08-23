@@ -197,7 +197,7 @@ def main(g_params):#{{{
 
     if len(posArgList) < 3:
         print >> sys.stderr, "Error! Two few positional arguments. Exit!"
-        print >> fpout, usage_short
+        print >> sys.stdout, usage_short
         return 1
     seqfile = posArgList[0]
     path_result = posArgList[1]
