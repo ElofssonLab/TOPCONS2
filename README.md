@@ -41,16 +41,19 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
 4. Install dependencies if not installed
 
-    *    Cmake      (for installation of modhmm)
+    *    Cmake      (for installation of modhmm, e.g. sudo apt-get install cmake)
     *    perl-Moose (e.g. sudo apt-get install perl-Moose)
     *    bioperl    (e.g. cpan > install  CJFIELDS/BioPerl-1.6.924.tar.gz )
     *    biopython  (e.g. sudo pip install biopython )
     *    IPC        (e.g. cpan > install IPC::Run)
-    *    kalign     (e.g. sudo apt-get install kalign2)
+    *    kalign     (e.g. sudo apt-get install kalign)
     *    hmmer3.0   (note that hmmscan should be compatible with the pfam database
-                     otherwise, you may encounter format incompatible problem)
-    *    Gnuplot
-    *    convert from ImageMagic
+                     otherwise, you may encounter format incompatible problem
+                     http://hmmer.org/download.html)
+    *    Gnuplot    (e.g. sudo apt-get install gnuplot)
+    *    convert from ImageMagick (e.g. sudo apt-get install imagemagick)
+    *    xsltproc   (e.g. sudo apt-get install xsltproc)
+    *    gengetopt  (e.g. sudo apt-get install gengetopt)
     *    awk, sort, head
 
     Note that the commands hmmscan, kalign, gnuplot, convert, sort, awk and
