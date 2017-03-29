@@ -43,7 +43,7 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     *    Cmake      (for installation of modhmm, e.g. sudo apt-get install cmake)
     *    perl-Moose (e.g. sudo apt-get install perl-Moose)
-    *    bioperl    (e.g. cpan > install  CJFIELDS/BioPerl-1.6.924.tar.gz )
+    *    bioperl-1.6.924   (e.g. cpan > install  CJFIELDS/BioPerl-1.6.924.tar.gz )
     *    biopython  (e.g. sudo pip install biopython )
     *    IPC        (e.g. cpan > install IPC::Run)
     *    kalign     (e.g. sudo apt-get install kalign)
