@@ -125,6 +125,30 @@ peptides. Nucleic Acids Res. 43, W401-W407
     </pre>
 
 
+## Docker container for TOPCONS2
+1. Download the database for TOPCONS2 from
+    http://topcons.net/static/download/topcons2_database.zip
+   and unzip it by 
+
+    `$ unzip topcons2_database.zip`
+
+    and saved as `/data/topcons2_database`
+
+2. Pull the Docker image by 
+
+    ` $ docker pull nanjiang/topcons2`
+
+3. Run Docker container by 
+    
+    ` $ docker run -v /data/topcons2_database:/data/topcons2_database -it nanjiang/topcons2 `
+
+4. Test run
+
+    ` $ cd /home/software/TOPCONS2/topcons2_webserver/test`
+     
+    ` $ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
+
+
 ##Run only the sub-predictors OCTOPUS and SPOCTOPUS
 If you only need to run OCTOPUS and SPOCTOPUS within the TOPCONS2 package, you
 need to install the whole package using the procedure described above for
