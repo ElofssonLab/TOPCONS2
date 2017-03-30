@@ -51,6 +51,8 @@ peptides. Nucleic Acids Res. 43, W401-W407
                      otherwise, you may encounter format incompatible problem
                      http://hmmer.org/download.html)
     *    Gnuplot    (e.g. sudo apt-get install gnuplot)
+    *    Java       (make sure that the command java is in the PATH, 
+                     e.g. sudo apt-get install default-jre)
     *    convert from ImageMagick (e.g. sudo apt-get install imagemagick)
     *    xsltproc   (e.g. sudo apt-get install xsltproc)
     *    gengetopt  (e.g. sudo apt-get install gengetopt)
