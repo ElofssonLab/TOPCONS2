@@ -139,7 +139,7 @@ peptides. Nucleic Acids Res. 43, W401-W407
     ` $ docker pull nanjiang/topcons2`
 
 3. Run Docker container by 
-    
+
     ` $ docker run -v /data/topcons2_database:/data/topcons2_database -it nanjiang/topcons2 `
 
 4. Test run
@@ -148,6 +148,17 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     ` $ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
 
+If you want to run TOPCONS2 Docker from outside of the container, suppose you
+want to output the result to the folder `/scratch`, then start the container by 
+
+    ` $  docker run -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it -d nanjiang/topcons2`
+
+copy your query sequence, e.g. `one_seq.fasta` to `/scratch` and then run the following command in the shell terminal
+
+    `docker exec -it abd9f2933505 script /dev/null -c "python /home/software/TOPCONS2/topcons2_webserver/workflow/pfam_workflow.py /scratch/one_seq.fasta /scratch/rst1 /home/software/TOPCONS2/topcons2_webserver/tools/blast-2.2.26/ /home/software/TOPCONS2/topcons2_webserver/database/blast/uniref90.fasta"  `
+
+    The prediction result will be output to `/scratch/rst1` given successful
+    run.
 
 ## Run only the sub-predictors OCTOPUS and SPOCTOPUS
 If you only need to run OCTOPUS and SPOCTOPUS within the TOPCONS2 package, you
