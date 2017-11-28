@@ -39,6 +39,11 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     `$ ln -s /path/to/the/downloaded/database database`
 
+    You may need to update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
+
+
+    `$ ./install_blastdb.sh database`
+
 4. Install dependencies if not installed
 
     *    Cmake      (for installation of modhmm, e.g. sudo apt-get install cmake)
@@ -133,6 +138,10 @@ peptides. Nucleic Acids Res. 43, W401-W407
     `$ unzip topcons2_database.zip`
 
     and saved as `/data/topcons2_database`
+
+    Update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
+
+    `$ ./install_blastdb.sh /data/topcons2_database/blast`
 
 2. Pull the Docker image by 
 
