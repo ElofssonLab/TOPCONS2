@@ -1,0 +1,10 @@
+topcons2_webserver/download
+topcons2_webserver/log
+topcons2_webserver/test
+topcons2_webserver/database
+topcons2_webserver/predictors/source/cmdline
+
+
+*.img
+.git
+

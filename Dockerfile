@@ -11,7 +11,6 @@ RUN apt-get install -y apt-utils  \
                        curl wget bc \
                        python python-dev python-pip \
                        build-essential  \
-                       libxml2-dev libxslt1-dev libsqlite3-dev zlib1g-dev   \
                        cmake  \
                        gnuplot \
                        kalign \
@@ -22,7 +21,7 @@ RUN apt-get install -y apt-utils  \
                        locales-all \
                        default-jre
 
-RUN apt-get install -y blast2 ncbi-blast+
+RUN apt-get install -y blast2
 #================================
 # Install python package 
 #===============================
@@ -33,7 +32,7 @@ RUN pip install --upgrade pip && pip install biopython==1.70
 #===============================
 WORKDIR /app
 # add the source code to WORKDIR /app
-ADD . ./topcons2
+ADD topcons2_webserver ./topcons2
 
 RUN mkdir -p /app/download /data/  /scratch/
 
