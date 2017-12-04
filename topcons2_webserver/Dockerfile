@@ -8,16 +8,13 @@ LABEL version "1.1"
 #===============================
 RUN apt-get  update -y
 RUN apt-get install -y apt-utils  \
-                       curl wget vim tree bc git \
+                       curl wget bc \
                        python python-dev python-pip \
                        build-essential  \
                        libxml2-dev libxslt1-dev libsqlite3-dev zlib1g-dev   \
-                       r-base \
                        cmake  \
-                       qt4-qmake  \
-                       emboss-lib   \
-                       emboss  \
                        gnuplot \
+                       kalign \
                        imagemagick \
                        gengetopt \
                        xsltproc \
@@ -25,7 +22,7 @@ RUN apt-get install -y apt-utils  \
                        locales-all \
                        default-jre
 
-RUN apt-get install -y blast2
+RUN apt-get install -y blast2 ncbi-blast+
 #================================
 # Install python package 
 #===============================
@@ -64,16 +61,14 @@ RUN cd /app/download && \
 RUN perlbrew install-cpanm
 RUN /root/perl5/perlbrew/bin/cpanm Moose &&\
     /root/perl5/perlbrew/bin/cpanm IPC::Run &&\
-    /root/perl5/perlbrew/bin/cpanm CJFIELDS/BioPerl-1.6.924.tar.gz
+    /root/perl5/perlbrew/bin/cpanm --force CJFIELDS/BioPerl-1.6.924.tar.gz
 
 #================================
 # Setting ENVs
 #===============================
 ENV PERL5LIB "/app/topcons2/database/pfam_seq/PfamScan"
+ENV USER_DIRS "/app"
 
-#================================
-# Clean
-#===============================
 RUN rm -rf /app/download
 
 CMD ["/bin/bash" ]
