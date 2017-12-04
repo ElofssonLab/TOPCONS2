@@ -1,6 +1,9 @@
 topcons2_webserver/download
 topcons2_webserver/log
-topcons2_webserver/test
+topcons2_webserver/test/rst*
+topcons2_webserver/test/out*
+topcons2_webserver/test/log*
+topcons2_webserver/test/bad*
 topcons2_webserver/database
 
 
