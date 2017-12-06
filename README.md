@@ -26,23 +26,23 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
 1. Check out the software from the github by
 
-    `$ git clone https://github.com/ElofssonLab/TOPCONS2`
+        git clone https://github.com/ElofssonLab/TOPCONS2
 
 2. Download the database for TOPCONS2 from
     http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
 
-    `$ unzip topcons2_database.zip`
+        unzip topcons2_database.zip
 
 3. Change to the folder 'topcons2_webserver' and create a soft link to the
    downloaded database
 
-    `$ ln -s /path/to/the/downloaded/database database`
+        ln -s /path/to/the/downloaded/database database
 
     You may need to update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
 
 
-    `$ ./install_blastdb.sh database`
+        ./install_blastdb.sh database
 
 4. Install dependencies if not installed
 
@@ -68,22 +68,22 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
 5. Install modhmm
 
-   change to the folder 'topcons2_webserver/predictors/source/modhmm'
+   change to the folder `topcons2_webserver/predictors/source/modhmm`
 
-   `$ bash fresh_install.sh /path/to/topcons2_webserver/predictors`
+        bash fresh_install.sh /path/to/topcons2_webserver/predictors
 
 6. Test the topcons2 workflow
 
-   change to the folder 'topcons2_webserver/test'
+   change to the folder `topcons2_webserver/test`
    and run the following commands 
 
-    `$ ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
+        ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
 
-    `$ ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta`
+        ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
 
-   The example results can be found in the folder 'rst_one_seq' and
-   'rst_multiple_seqs' for the example fasta file one_seq.fasta and
-   multiple_seqs.fasta respectively.
+   The example results can be found in the folder `rst_one_seq` and
+   `rst_multiple_seqs` for the example fasta file `one_seq.fasta` and
+   `multiple_seqs.fasta` respectively.
 
 * Description of the output results
     If the input contains one sequence and the out_path is "one_seq"
@@ -136,33 +136,33 @@ peptides. Nucleic Acids Res. 43, W401-W407
     http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
 
-    `$ unzip topcons2_database.zip`
+        unzip topcons2_database.zip
 
     and saved as `/data/topcons2_database`
 
     Update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
 
-    `$ ./install_blastdb.sh /data/topcons2_database/blast`
+        ./install_blastdb.sh /data/topcons2_database/blast
 
 2. Pull the Docker image by 
 
-    ` $ docker pull nanjiang/topcons2`
+        docker pull nanjiang/topcons2
 
     or you can also build the Docker image locally by 
 
-    ` $ docker build -t topcons2 . `
+        docker build -t topcons2 .
 
     within the cloned folder, i.e. `TOPCONS2/`
 
 3. Run Docker container by 
 
-    ` $ docker run -v /data/topcons2_database:/data/topcons2_database -it nanjiang/topcons2 `
+        docker run -v /data/topcons2_database:/data/topcons2_database -it nanjiang/topcons2
 
 4. Test run
 
-    ` $ cd /app/topcons2/test`
+        cd /app/topcons2/test
 
-    ` $ ../run_topcons2.sh one_seq.fasta -outpath rst1 `
+        ../run_topcons2.sh one_seq.fasta -outpath rst1
 
     The result will be available at `rst1/one_seq/seq_0`
 
@@ -170,14 +170,12 @@ peptides. Nucleic Acids Res. 43, W401-W407
     you want to output the result to the folder `/scratch`, then start the
     container by 
 
-    ```$ docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2
-    ```
+        docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2
 
     copy your query sequence, e.g. `one_seq.fasta` to `/scratch` and then run
     the following command in the shell terminal
 
-    ```docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/one_seq.fasta -outpath  /scratch/rst1"
-    ```
+        docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/one_seq.fasta -outpath  /scratch/rst1"
 
     The prediction result will be output to `/scratch/rst1` given successful
     run.
@@ -186,24 +184,21 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
 ## Run TOPCONS2 with Singularity
 
-    You can also run TOPCONS2 with Singularity 
+You can also run TOPCONS2 with Singularity 
 
-    1. Database preparation: do the same as step 1 for when running with
-       Docker.
+1. Database preparation: do the same as step 1 for when running with Docker.
 
-    2. Pull the Docker image by 
+2. Pull the Docker image by 
 
-    ```singularity pull docker://nanjiang/topcons2
-    ```
+    singularity pull docker://nanjiang/topcons2
 
-    3. Suppose you have saved the database at `/data/topcons2_database` and you
-       have a user writable folder `/scratch`, then you can run TOPCONS2 with
-       the following command
+3. Suppose you have saved the database at `/data/topcons2_database` and you
+   have a user writable folder `/scratch`, then you can run TOPCONS2 with the
+   following command
 
-    ```singularity exec  -B /data:/data -B /scratch:/scratch topcons2.img /app/topcons2/run_topcons2.sh /app/topcons2/test/one_seq.fasta -outpath /scratch/rst1
-    ```
+    singularity exec  -B /data:/data -B /scratch:/scratch topcons2.img /app/topcons2/run_topcons2.sh /app/topcons2/test/one_seq.fasta -outpath /scratch/rst1
 
-        The prediction result will be output to `/scratch/rst1` given successful run.
+   The prediction result will be output to `/scratch/rst1` given successful run.
 
 
 ## Run only the sub-predictors OCTOPUS and SPOCTOPUS
