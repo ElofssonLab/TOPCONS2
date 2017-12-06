@@ -130,7 +130,8 @@ peptides. Nucleic Acids Res. 43, W401-W407
     </pre>
 
 
-## Docker container for TOPCONS2
+## Run TOPCONS2 with Docker
+
 1. Download the database for TOPCONS2 from
     http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
@@ -147,6 +148,12 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     ` $ docker pull nanjiang/topcons2`
 
+    or you can also build the Docker image locally by 
+
+    ` $ docker build -t topcons2 . `
+
+    within the cloned folder, i.e. `TOPCONS2/`
+
 3. Run Docker container by 
 
     ` $ docker run -v /data/topcons2_database:/data/topcons2_database -it nanjiang/topcons2 `
@@ -159,21 +166,45 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     The result will be available at `rst1/one_seq/seq_0`
 
-If you want to run TOPCONS2 Docker from outside of the container, suppose you
-want to output the result to the folder `/scratch`, then start the container by 
+    If you want to run TOPCONS2 Docker from outside of the container, suppose
+    you want to output the result to the folder `/scratch`, then start the
+    container by 
 
-    `$ docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2`
+    ```$ docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2
+    ```
 
-copy your query sequence, e.g. `one_seq.fasta` to `/scratch` and then run the following command in the shell terminal
+    copy your query sequence, e.g. `one_seq.fasta` to `/scratch` and then run
+    the following command in the shell terminal
 
-    `docker exec -it topcons2 script /dev/null -c "python /home/software/TOPCONS2/topcons2_webserver/workflow/pfam_workflow.py /scratch/one_seq.fasta /scratch/rst1 /home/software/TOPCONS2/topcons2_webserver/tools/blast-2.2.26/ /home/software/TOPCONS2/topcons2_webserver/database/blast/uniref90.fasta"  `
-
-
-    `docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/one_seq.fasta -outpath  /scratch/rst1"`
+    ```docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/one_seq.fasta -outpath  /scratch/rst1"
+    ```
 
     The prediction result will be output to `/scratch/rst1` given successful
     run.
-    Note also that the output files are owned by your current user, i.e. `$USER`
+
+    **Note** also that the output files are owned by your current user, i.e. `$USER`
+
+## Run TOPCONS2 with Singularity
+
+    You can also run TOPCONS2 with Singularity 
+
+    1. Database preparation: do the same as step 1 for when running with
+       Docker.
+
+    2. Pull the Docker image by 
+
+    ```singularity pull docker://nanjiang/topcons2
+    ```
+
+    3. Suppose you have saved the database at `/data/topcons2_database` and you
+       have a user writable folder `/scratch`, then you can run TOPCONS2 with
+       the following command
+
+    ```singularity exec  -B /data:/data -B /scratch:/scratch topcons2.img /app/topcons2/run_topcons2.sh /app/topcons2/test/one_seq.fasta -outpath /scratch/rst1
+    ```
+
+        The prediction result will be output to `/scratch/rst1` given successful run.
+
 
 ## Run only the sub-predictors OCTOPUS and SPOCTOPUS
 If you only need to run OCTOPUS and SPOCTOPUS within the TOPCONS2 package, you

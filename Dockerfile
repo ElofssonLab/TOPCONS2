@@ -34,7 +34,7 @@ WORKDIR /app
 # add the source code to WORKDIR /app
 ADD topcons2_webserver ./topcons2
 
-RUN mkdir -p /app/download /data/  /scratch/
+RUN mkdir -p /app/download /data/topcons2_database  /scratch/
 
 # link data
 RUN cd /app/topcons2 &&\
