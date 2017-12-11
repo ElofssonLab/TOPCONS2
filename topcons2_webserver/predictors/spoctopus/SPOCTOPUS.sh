@@ -6,10 +6,6 @@ if [ ${#2} -lt 1 ]; then
     exit
 fi
 
-TMPPATH=/tmp
-if [ -d /scratch ]; then
-    TMPPATH=/scratch
-fi
 
 #prfFolder=$1
 protnamefile=$1

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-TMPPATH=/tmp
-if [ -d /scratch ]; then
-    TMPPATH=/scratch
-fi
-
 protnamefile=/scratch/KOSTAS/topcons2/topcons2_webserver/predictors/spoctopus/name.list
 fastadir=/scratch/KOSTAS/topcons2/topcons2_webserver/input/
 workingdir=`/bin/mktemp -d $TMPPATH/BLOCTOPUS_XXXXXXXXXX` || exit 1

@@ -5,10 +5,6 @@ if [ ${#3} -lt 1 ]; then
     exit
 fi
 
-TMPPATH=/tmp
-if [ -d /scratch ]; then
-    TMPPATH=/scratch
-fi
 
 rundir=`dirname $0`
 cd $rundir
