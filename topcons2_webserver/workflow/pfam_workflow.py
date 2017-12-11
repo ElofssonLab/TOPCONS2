@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -- python2.7+ --
 import sys
 import os
 import time
@@ -7,17 +8,8 @@ import tempfile
 import subprocess
 import module_locator
 import ntpath
+import argparse
 
-
-TMPPATH="/tmp"
-if os.path.exists("/scratch"):
-    TMPPATH="/scratch"
-
-# it seems apache on centos does not like /usr/local/bin
-# /usr/local/bin can not be added to path
-usage="""
-Usage: %s inFile out_path blastDir blastDB [-debug]
-"""%(sys.argv[0])
 
 rundir = os.path.dirname(os.path.realpath(__file__))
 basedir = os.path.realpath("%s/../"%(rundir))  #path to topcons2_webserver
@@ -25,22 +17,49 @@ os.environ['TOPCONS2'] = basedir
 
 
 def main(args, g_params):
-    try:
-        inFile = os.path.realpath(args[1])
-        out_path= os.path.realpath(args[2]) + os.sep
-        blastDir = args[3]
-        blastDB = args[4]
-    except IndexError:
-        print >> sys.stderr, "Bad syntax"
-        print usage
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+            description='TOPCONS2 workflow master script',
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            epilog='''\
+Created 2015-05-05, updated 2017-12-11, Peters Christoph and Nanjiang Shu
 
-    try:
-        altarg = args[5]
-        if altarg.lower() == "-debug":
-            g_params['DEBUG'] = True
-    except IndexError:
-        pass
+Examples:
+''')
+    parser.add_argument('inFile', metavar='inFile',
+            help='Specify the input amino acid sequence file in FASTA format')
+    parser.add_argument('out_path', metavar='out_path',
+            help='Specify the outpath for result')
+    parser.add_argument('blastDir', metavar='blastDir',
+            help='Specify the path for psiblast, which contains bin/blastpgp')
+    parser.add_argument('blastDB', metavar='blastDB',
+            help='Specify the name of the blastdb, including the path')
+    parser.add_argument('-tmpdir', '--tmpdir', metavar='DIR', dest='TMPPATH', 
+            help='Specify the directory where the temporary files will be written to')
+    parser.add_argument('-debug', '--debug', action='store_true', default=False,  dest='isDEBUG', 
+            help='Output debug info')
+    parser.add_argument('-plot','--plot', action='store', dest='isPlot', default='yes',
+            choices=['yes', 'no'], help='Whether output figure (default = yes)' )
+
+
+    args = parser.parse_args()
+
+    g_params['DEBUG'] = args.isDEBUG
+    inFile = os.path.abspath(args.inFile)
+    out_path = os.path.abspath(args.out_path)
+    blastDir = os.path.abspath(args.blastDir)
+    blastDB = os.path.abspath(args.blastDB)
+    g_params['isPlot'] = args.isPlot
+    if args.TMPPATH != None:
+        g_params['TMPPATH'] = os.path.abspath(args.TMPPATH)
+
+    if not os.access(g_params['TMPPATH'], os.W_OK):
+        print >> sys.stderr, "Error. TMPPATH '%s' not writable. Exit."%(g_params['TMPPATH'])
+        return 1
+    if not os.access(out_path, os.W_OK):
+        print >> sys.stderr, "Error. out_path '%s' not writable. Exit."%(out_path)
+        return 1
+
+    os.environ['TMPPATH'] = g_params['TMPPATH']
 
     DEBUG = g_params['DEBUG']
     if not os.path.exists(inFile):
@@ -77,7 +96,7 @@ def main(args, g_params):
 
                 #Create folders for tmp data and output
                 used_pfam = "pfam"
-                tmpDir = tempfile.mkdtemp(prefix="%s/seq_"%(TMPPATH) + str(index) + "_") + "/"
+                tmpDir = tempfile.mkdtemp(prefix="%s/seq_"%(g_params['TMPPATH']) + str(index) + "_") + "/"
                 os.chmod(tmpDir, 0755)
                 tmpDir_pfam = tmpDir
                 tmpDir_cdd = ""
@@ -147,7 +166,7 @@ def main(args, g_params):
 
                 # In case we do not find a hit, we have to run hmmscan on the cdd database
                 if filesize <= 0:
-                    tmpDir_cdd = tempfile.mkdtemp(prefix="%s/seq_cdd_"%(TMPPATH) + str(index) + "_") + "/"
+                    tmpDir_cdd = tempfile.mkdtemp(prefix="%s/seq_cdd_"%(g_params['TMPPATH']) + str(index) + "_") + "/"
                     os.chmod(tmpDir_cdd, 0755)
                     with open(tmpDir_cdd + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
@@ -175,7 +194,7 @@ def main(args, g_params):
                         print "After fa2prfs_hmmscan.sh filesize(%s)=%d"%(query_seqdbfile, filesize)
                 # In case we do not find a hit, we have to run the old script
                 if filesize <= 0:
-                    tmpDir_uniref = tempfile.mkdtemp(prefix="%s/seq_uniref_"%(TMPPATH) + str(index) + "_") + "/"
+                    tmpDir_uniref = tempfile.mkdtemp(prefix="%s/seq_uniref_"%(g_params['TMPPATH']) + str(index) + "_") + "/"
                     os.chmod(tmpDir_uniref, 0755)
                     with open(tmpDir_uniref + "query.fa", "w") as outFile:
                         outFile.write(">query" + "\n" + str(entry.seq))
@@ -360,18 +379,26 @@ def main(args, g_params):
 
                 p = subprocess.call(["python","correct_Topo.py", outDir])
 
-                cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
-                try:
-                    rmsg = subprocess.check_call(cmd)
-                    print rmsg
-                except subprocess.CalledProcessError, e:
-                    print e
-                    print rmsg
-                    pass
-                #exit()
+                if g_params['isPlot'] == 'yes':
+                    cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
+                    try:
+                        rmsg = subprocess.check_call(cmd)
+                        print rmsg
+                    except subprocess.CalledProcessError, e:
+                        print e
+                        print rmsg
+                        pass
 
 
-if __name__=="__main__":
+def InitGlobalParameter():#{{{
     g_params = {}
     g_params['DEBUG'] = False
+    g_params['isPlot'] = 'yes'
+    g_params['TMPPATH']="/tmp"
+    if os.path.exists("/scratch") and os.access("/scratch", os.W_OK):
+        g_params['TMPPATH']="/scratch"
+    return g_params
+#}}}
+if __name__=="__main__":
+    g_params = InitGlobalParameter()
     sys.exit(main(sys.argv, g_params))

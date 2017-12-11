@@ -5,9 +5,10 @@ mainoutdir=
 
 
 usage="
-usage: $0 -outpath OUTDIR FILE [FILE ...]
+usage: $0 -outpath OUTDIR FILE [FILE ...] 
+            [--debug] [--tmpdir DIR] [--plot {yes, no}]
 
-Created 2017-12-03, updated 2017-12-03, Nanjiang Shu
+Created 2017-12-03, updated 2017-12-11, Nanjiang Shu
 
 Example:
     # run TOPCONS2 for two sequence files test1.fasta and test2.fasta
@@ -22,6 +23,7 @@ fi
 
 mainoutdir=
 fileList=()
+extra_opt=""
 
 isNonOptionArg=0
 while [ "$1" != "" ]; do
@@ -34,6 +36,9 @@ while [ "$1" != "" ]; do
         case $1 in
             -h | --help) echo "$usage"; exit;;
             -outpath|--outpath) mainoutdir=$2;shift;;
+            --debug) extra_opt="$extra_opt --debug";;
+            --tmpdir) extra_opt="$extra_opt --tmpdir $2";shift;;
+            --plot) extra_opt="$extra_opt --plot $2";shift;;
             -*) echo Error! Wrong argument: $1 >&2; exit;;
         esac
     else
@@ -70,5 +75,6 @@ for ((i=0;i<numFile;i++));do
     if [ ! -d $outdir ];then
         mkdir -p $outdir
     fi
-    $rundir/workflow/pfam_workflow.py $file $outdir $rundir/tools/blast-2.2.26/ $rundir/database/blast/uniref90.fasta
+    echo "$rundir/workflow/pfam_workflow.py $file $outdir $rundir/tools/blast-2.2.26/ $rundir/database/blast/uniref90.fasta $extra_opt"
+    $rundir/workflow/pfam_workflow.py $file $outdir $rundir/tools/blast-2.2.26/ $rundir/database/blast/uniref90.fasta $extra_opt
 done

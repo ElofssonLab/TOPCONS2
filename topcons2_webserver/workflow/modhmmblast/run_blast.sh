@@ -6,10 +6,6 @@ if [ ${#5} -lt 1 ]; then
     exit
 fi
 
-TMPPATH=/tmp
-if [ -d /scratch ]; then
-    TMPPATH=/scratch
-fi
 
 BLAST=$4
 DATABASE=$5

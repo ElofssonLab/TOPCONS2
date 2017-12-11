@@ -6,10 +6,6 @@ if [ ${#4} -lt 1 ]; then
     exit
 fi
 
-TMPPATH=/tmp
-if [ -d /scratch ]; then
-    TMPPATH=/scratch
-fi
 
 ####### hard coded directories and progs###########
 modhmmblastdir=modhmmblast
