@@ -36,9 +36,9 @@ while [ "$1" != "" ]; do
         case $1 in
             -h | --help) echo "$usage"; exit;;
             -outpath|--outpath) mainoutdir=$2;shift;;
-            --debug) extra_opt="$extra_opt --debug";;
-            --tmpdir) extra_opt="$extra_opt --tmpdir $2";shift;;
-            --plot) extra_opt="$extra_opt --plot $2";shift;;
+            -debug|--debug) extra_opt="$extra_opt --debug";;
+            -tmpdir|--tmpdir) extra_opt="$extra_opt --tmpdir $2";shift;;
+            -plot|--plot) extra_opt="$extra_opt --plot $2";shift;;
             -*) echo Error! Wrong argument: $1 >&2; exit;;
         esac
     else
