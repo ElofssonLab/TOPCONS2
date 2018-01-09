@@ -5,6 +5,7 @@
 import os
 import sys
 import myfunc
+import hashlib
 progname =  os.path.basename(sys.argv[0])
 wspace = ''.join([" "]*len(progname))
 
@@ -25,8 +26,10 @@ OPTIONS:
   -h, --help    Print this help message and exit
   -odg, --odg   Output also the deltaG scores
   -orel, --orel Output also the reliability scores
+  -md5          Result stored in MD5 format, i.e. md5[0:2]/md5[2:4]/md5/seq_0/
+  -verbose      Verbose mode
 
-Created 2016-08-18, updated 2016-08-18, Nanjiang Shu
+Created 2016-08-18, updated 2018-01-09, Nanjiang Shu
 """
 usage_exp="""
 Examples:
@@ -43,6 +46,8 @@ def PrintHelp(fpout=sys.stdout):#{{{
 def DumpPredictionTOPCONS2(seqfile, path_result, outfile, isWriteDG, isWriteRel):#{{{
     (seqidlist, seqannolist, seqlist) = myfunc.ReadFasta(seqfile)
     outfile_fa = "%s.fa"%(outfile)
+    outfile_unfinished_fa = "%s.unfinished.fa"%(outfile)
+    numseq = len(seqidlist)
 
     fpout = None
     try:
@@ -58,95 +63,124 @@ def DumpPredictionTOPCONS2(seqfile, path_result, outfile, isWriteDG, isWriteRel)
         print >> sys.stderr, "Failed to write to file \"%s\""%(outfile_fa)
         return 1
 
+    fpout_unfinished_fa = None
+    try:
+        fpout_unfinished_fa = open(outfile_unfinished_fa, "w")
+    except IOError:
+        print >> sys.stderr, "Failed to write to file \"%s\""%(outfile_unfinished_fa)
+        return 1
+
     methodlist = ['TOPCONS', 'OCTOPUS', 'Philius', 'PolyPhobius', 'SCAMPI',
             'SPOCTOPUS', 'Homology']
 
-    for i in xrange(len(seqidlist)):
-        subdirname = "seq_%d"%(i)
-        subdir = "%s/%s"%(path_result, subdirname)
-        seq = seqlist[i]
+    cntUnFinished = 0
+    for iseq in xrange(len(seqidlist)):
+        seq = seqlist[iseq]
         length = len(seq)
-        desp = seqannolist[i]
-        print >> fpout, "Sequence number: %d"%(i+1)
-        print >> fpout, "Sequence name: %s"%(desp)
-        print >> fpout, "Sequence length: %d aa."%(length)
-        print >> fpout, "Sequence:\n%s\n\n"%(seq)
-        topo_consensus = ""
-        for i in xrange(len(methodlist)):
-            method = methodlist[i]
-            seqid = ""
-            seqanno = ""
-            top = ""
-            if method == "TOPCONS":
-                topfile = "%s/%s/topcons.top"%(subdir, "Topcons")
-            elif method == "Philius":
-                topfile = "%s/%s/query.top"%(subdir, "philius")
-            elif method == "SCAMPI":
-                topfile = "%s/%s/query.top"%(subdir, method+"_MSA")
-            else:
-                topfile = "%s/%s/query.top"%(subdir, method)
-            if os.path.exists(topfile):
-                (seqid, seqanno, top) = myfunc.ReadSingleFasta(topfile)
-            else:
+        desp = seqannolist[iseq]
+        if g_params['resultPathFormat'] == "md5":
+            md5_key2 = hashlib.md5(seq+"\n").hexdigest()
+            md5_key1 = hashlib.md5(seq).hexdigest()
+            subdirname = "seq_%d"%(0)
+            isFound = False
+            for md5_key in [md5_key1, md5_key2]:
+                dir1 = md5_key[:2]
+                dir2 = md5_key[2:4]
+                datapath_this_seq = "%s%s%s%s%s%s%s" %(path_result, os.sep ,dir1, os.sep, dir2, os.sep, md5_key)
+                subdir = "%s/%s" %(datapath_this_seq, subdirname)
+                if os.path.exists(subdir):
+                    break
+        else:
+            subdirname = "seq_%d"%(iseq)
+            subdir = "%s/%s"%(path_result, subdirname)
+
+        if g_params['verbose']:
+            print "subdir = %s"%(subdir)
+
+        rstfile = "%s/Topcons/topcons.top"%(subdir)
+        if os.path.exists(rstfile):
+            print >> fpout, "Sequence number: %d"%(iseq+1)
+            print >> fpout, "Sequence name: %s"%(desp)
+            print >> fpout, "Sequence length: %d aa."%(length)
+            print >> fpout, "Sequence:\n%s\n\n"%(seq)
+            topo_consensus = ""
+            for i in xrange(len(methodlist)):
+                method = methodlist[i]
+                seqid = ""
+                seqanno = ""
                 top = ""
-            if top == "":
-                #top = "***No topology could be produced with this method topfile=%s***"%(topfile)
-                top = "***No topology could be produced with this method***"
+                if method == "TOPCONS":
+                    topfile = "%s/%s/topcons.top"%(subdir, "Topcons")
+                elif method == "Philius":
+                    topfile = "%s/%s/query.top"%(subdir, "philius")
+                elif method == "SCAMPI":
+                    topfile = "%s/%s/query.top"%(subdir, method+"_MSA")
+                else:
+                    topfile = "%s/%s/query.top"%(subdir, method)
+                if os.path.exists(topfile):
+                    (seqid, seqanno, top) = myfunc.ReadSingleFasta(topfile)
+                else:
+                    top = ""
+                if top == "":
+                    #top = "***No topology could be produced with this method topfile=%s***"%(topfile)
+                    top = "***No topology could be produced with this method***"
 
-            if method == "TOPCONS":
-                topo_consensus = top
+                if method == "TOPCONS":
+                    topo_consensus = top
 
-            if method == "Homology":
-                showtext_homo = method
-                if seqid != "":
-                    showtext_homo = seqid
-                print >> fpout, "%s:\n%s\n\n"%(showtext_homo, top)
-            else:
-                print >> fpout, "%s predicted topology:\n%s\n\n"%(method, top)
+                if method == "Homology":
+                    showtext_homo = method
+                    if seqid != "":
+                        showtext_homo = seqid
+                    print >> fpout, "%s:\n%s\n\n"%(showtext_homo, top)
+                else:
+                    print >> fpout, "%s predicted topology:\n%s\n\n"%(method, top)
 
-        if isWriteDG:
-            dgfile = "%s/dg.txt"%(subdir)
-            dg_content = ""
-            if os.path.exists(dgfile):
-                dg_content = myfunc.ReadFile(dgfile)
-            lines = dg_content.split("\n")
-            dglines = []
-            for line in lines:
-                if line and line[0].isdigit():
-                    dglines.append(line)
-            if len(dglines)>0:
-                print >> fpout,  "\nPredicted Delta-G-values (kcal/mol) "\
-                        "(left column=sequence position; right column=Delta-G)\n"
-                print >> fpout, "\n".join(dglines)
+            if isWriteDG:
+                dgfile = "%s/dg.txt"%(subdir)
+                dg_content = ""
+                if os.path.exists(dgfile):
+                    dg_content = myfunc.ReadFile(dgfile)
+                lines = dg_content.split("\n")
+                dglines = []
+                for line in lines:
+                    if line and line[0].isdigit():
+                        dglines.append(line)
+                if len(dglines)>0:
+                    print >> fpout,  "\nPredicted Delta-G-values (kcal/mol) "\
+                            "(left column=sequence position; right column=Delta-G)\n"
+                    print >> fpout, "\n".join(dglines)
 
-        if isWriteRel:
-            reliability_file = "%s/Topcons/reliability.txt"%(subdir)
-            reliability = ""
-            if os.path.exists(reliability_file):
-                reliability = myfunc.ReadFile(reliability_file)
-            if reliability != "":
-                print >> fpout, "\nPredicted TOPCONS reliability (left "\
-                        "column=sequence position; right column=reliability)\n"
-                print >> fpout, reliability
+            if isWriteRel:
+                reliability_file = "%s/Topcons/reliability.txt"%(subdir)
+                reliability = ""
+                if os.path.exists(reliability_file):
+                    reliability = myfunc.ReadFile(reliability_file)
+                if reliability != "":
+                    print >> fpout, "\nPredicted TOPCONS reliability (left "\
+                            "column=sequence position; right column=reliability)\n"
+                    print >> fpout, reliability
 
-        print >> fpout, "##############################################################################"
+            print >> fpout, "##############################################################################"
 
+            # write the concensus prediction in FASTA format
+            print >> fpout_fa, ">%s"%(desp)
+            print >> fpout_fa, topo_consensus
 
+        else:
+            # write unfinished
+            fpout_unfinished_fa.write(">%s\n%s\n"%(desp, seq))
+            cntUnFinished += 1
 
-        # write the concensus prediction in FASTA format
-        print >> fpout_fa, ">%s"%(desp)
-        print >> fpout_fa, topo_consensus
+    if cntUnFinished > 1:
+        print >> sys.stderr, "%s out of %d sequences are with unfinished predictions, please check."%(cntUnFinished, numseq)
 
-    if fpout:
-        try:
-            fpout.close()
-        except IOError:
-            pass
-    if fpout_fa:
-        try:
-            fpout_fa.close()
-        except IOError:
-            pass
+    for fp in [fpout, fpout_fa, fpout_unfinished_fa]:
+        if fp:
+            try:
+                fp.close()
+            except IOError:
+                pass
 
     return 0
 
@@ -180,6 +214,12 @@ def main(g_params):#{{{
                 return 1
             elif argv[i] in ["-odg", "--odg"]:
                 isWriteDG = True
+                i += 1
+            elif argv[i] in ["-md5", "--md5"]:
+                g_params['resultPathFormat'] = 'md5'
+                i += 1
+            elif argv[i] in ["-v", "--v", "-verbose", "--verbose"]:
+                g_params['verbose'] = True
                 i += 1
             elif argv[i] in ["-orel", "--orel"]:
                 isWriteRel = True
@@ -218,6 +258,8 @@ def main(g_params):#{{{
 def InitGlobalParameter():#{{{
     g_params = {}
     g_params['isQuiet'] = True
+    g_params['resultPathFormat'] = 'seq'
+    g_params['verbose'] = False
     return g_params
 #}}}
 if __name__ == '__main__' :
