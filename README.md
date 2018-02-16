@@ -172,12 +172,17 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
         docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2
 
-    copy your query sequence, e.g. `one_seq.fasta` to `/scratch` and then run
+    Now you can test run the TOPCONS2 using the example sequence provided in
+    the package by
+
+        docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /app/topcons2/test/one_seq.fasta -outpath  /scratch/rst1"
+
+    To use you own sequence, you can copy your query sequence, e.g. `yourseq.fasta` to `/scratch` and then run
     the following command in the shell terminal
 
-        docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/one_seq.fasta -outpath  /scratch/rst1"
+        docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_topcons2.sh /scratch/yourseq.fasta -outpath  /scratch/rst_yourseq"
 
-    The prediction result will be output to `/scratch/rst1` given successful
+    The prediction result will be output to `/scratch/rst_yourseq` given successful
     run.
 
     **Note** also that the output files are owned by your current user, i.e. `$USER`
@@ -209,7 +214,7 @@ TOPCONS2. Then, use the script `pfam_workflow_octopus.py`.
 Examples:
 change to the folder 'topcons2_webserver/test' and run the following commands 
 
-        ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+        ../run_octopus.sh -outpath rst2 multiple_seqs.fasta
 
 The result of predicted topologies in Fasta format can be found in
 `rst1/multiple_seqs.OCTOPUS.topfa` and  `rst1/multiple_seqs.SPOCTOPUS.topfa`
@@ -217,4 +222,19 @@ The result of predicted topologies in Fasta format can be found in
 If you do not need the individual output files nor the ANN output, you can
 run the commands with the "-remove-individual-files" flag, that is
 
-        ../workflow/pfam_workflow_octopus.py multiple_seqs.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta -remove-individual-files
+        ../run_octopus.sh -outpath rst2 -RM multiple_seqs.fasta
+
+## Run only the sub-predictors OCTOPUS and SPOCTOPUS using Docker
+
+Run OCTOPUS and SPOCTOPUS using Docker is similar to run the whole TOPCONS2
+workflow.
+
+start the container by (assume you have the write permission to the folder
+`/scratch`)
+
+        docker run -e USER_ID=$(id -u $USER) -v /data/topcons2_database:/data/topcons2_database -v /scratch:/scratch -it  --name topcons2 -d nanjiang/topcons2
+
+And make your test run by
+
+        docker exec --user user topcons2 script /dev/null -c "/app/topcons2/run_octopus.sh /app/topcons2/test/one_seq.fasta -outpath  /scratch/rst2"
+
