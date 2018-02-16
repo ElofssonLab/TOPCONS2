@@ -15,47 +15,56 @@ import module_locator
 import ntpath
 import myfunc
 import shutil
+import argparse
 
-
-TMPPATH="/tmp"
-if os.path.exists("/scratch"):
-    TMPPATH="/scratch"
-
-# it seems apache on centos does not like /usr/local/bin
-# /usr/local/bin can not be added to path
-usage="""
-Usage: %s inFile out_path blastDir blastDB [-RM, -remove-individual-files] [-debug]
-"""%(sys.argv[0])
 
 rundir = os.path.dirname(os.path.realpath(__file__))
 basedir = os.path.realpath("%s/../"%(rundir))  #path to topcons2_webserver
 os.environ['TOPCONS2'] = basedir
 
-
 def main(args, g_params):
-    try:
-        inFile = os.path.realpath(args[1])
-        out_path= os.path.realpath(args[2]) + os.sep
-        blastDir = args[3]
-        blastDB = args[4]
-    except IndexError:
-        print >> sys.stderr, "Bad syntax"
-        print usage
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+            description='TOPCONS2_OCTOPUS workflow master script',
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            epilog='''\
+Created 2015-05-05, updated 2018-02-16, Peters Christoph and Nanjiang Shu
 
-    i = 5
-    numArgv = len(args)
-    while i < numArgv:
-        if args[i].lower() == "-debug":
-            g_params['DEBUG'] = True
-            i += 1
-        elif args[i].lower() in ["-remove-individual-files", "-rm"]:
-            g_params['REMOVE_IND_FILES'] = True
-            i += 1
-        else:
-            print >> sys.stderr, "bad argument \'%s\'"%(args[i])
-            i += 1
+Examples:
+''')
+    parser.add_argument('inFile', metavar='inFile',
+            help='Specify the input amino acid sequence file in FASTA format')
+    parser.add_argument('out_path', metavar='out_path',
+            help='Specify the outpath for result')
+    parser.add_argument('blastDir', metavar='blastDir',
+            help='Specify the path for psiblast, which contains bin/blastpgp')
+    parser.add_argument('blastDB', metavar='blastDB',
+            help='Specify the name of the blastdb, including the path')
+    parser.add_argument('-tmpdir', '--tmpdir', metavar='DIR', dest='TMPPATH', 
+            help='Specify the directory where the temporary files will be written to')
+    parser.add_argument('-debug', '--debug', action='store_true', default=False,  dest='isDEBUG', 
+            help='Output debug info')
+    parser.add_argument('-RM', '--remove-individual-files', action='store_true', default=False,  dest='isRemoveFile', 
+            help='Delete result for individual sequences')
 
+    args = parser.parse_args()
+
+    g_params['DEBUG'] = args.isDEBUG
+    g_params['REMOVE_IND_FILES'] = args.isRemoveFile
+    inFile = os.path.abspath(args.inFile)
+    out_path = os.path.abspath(args.out_path)
+    blastDir = os.path.abspath(args.blastDir)
+    blastDB = os.path.abspath(args.blastDB)
+    if args.TMPPATH != None:
+        g_params['TMPPATH'] = os.path.abspath(args.TMPPATH)
+
+    if not os.access(g_params['TMPPATH'], os.W_OK):
+        print >> sys.stderr, "Error. TMPPATH '%s' not writable. Exit."%(g_params['TMPPATH'])
+        return 1
+    if not os.access(out_path, os.W_OK):
+        print >> sys.stderr, "Error. out_path '%s' not writable. Exit."%(out_path)
+        return 1
+
+    os.environ['TMPPATH'] = g_params['TMPPATH']
 
     DEBUG = g_params['DEBUG']
     if not os.path.exists(inFile):
