@@ -67,6 +67,7 @@ Examples:
     os.environ['TMPPATH'] = g_params['TMPPATH']
 
     DEBUG = g_params['DEBUG']
+    TMPPATH = g_params['TMPPATH']
     if not os.path.exists(inFile):
         print >> sys.stderr, "inFile %s does not exist. Exit."%(inFile)
         sys.exit(1)
@@ -298,4 +299,7 @@ if __name__=="__main__":
     g_params = {}
     g_params['DEBUG'] = False
     g_params['REMOVE_IND_FILES'] = False
+    g_params['TMPPATH']="/tmp"
+    if os.path.exists("/scratch") and os.access("/scratch", os.W_OK):
+        g_params['TMPPATH']="/scratch"
     sys.exit(main(sys.argv, g_params))
