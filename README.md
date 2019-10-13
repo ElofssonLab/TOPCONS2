@@ -90,43 +90,40 @@ peptides. Nucleic Acids Res. 43, W401-W407
     The tree view of all output files will be
 
     <pre>
-    one_seq/
-    ├── seq_0              # if there are more than one sequence in the input
-    │   │                  # file, the subfolders will be named as seq_1, seq_2 ... 
+    └── one_seq
+    ├── seq_0
     │   ├── DG1.txt
+    │   ├── dg.txt
     │   ├── Homology
     │   │   ├── query.fa.total_aligns
     │   │   └── query.top
+    │   ├── nicetop.html
     │   ├── OCTOPUS
     │   │   ├── NN_PRF_FILES
-    │   │   │   └── query.prf  # Detailed network prediction for OCTOPUS
+    │   │   │   └── query.prf
+    │   │   └── query.top
+    │   ├── philius
     │   │   └── query.top
     │   ├── PolyPhobius
     │   │   └── query.top
     │   ├── SCAMPI_MSA
     │   │   └── query.top
+    │   ├── seq.fa
     │   ├── SPOCTOPUS
     │   │   ├── NN_PRF_FILES
     │   │   │   └── query.nnprf
     │   │   └── query.top
-    │   ├── Topcons
-    │   │   ├── reliability.final
-    │   │   ├── reliability.txt
-    │   │   ├── topcons.gnu
-    │   │   ├── topcons.large.png
-    │   │   ├── topcons.png
-    │   │   ├── topcons.top       # the predicted topology for TOPCONS
-    │   │   ├── total_image.gnu
-    │   │   ├── total_image.large.png
-    │   │   └── total_image.png
-    │   ├── dg.txt
-    │   ├── nicetop.html
-    │   ├── philius
-    │   │   └── query.top
-    │   ├── query.result.txt
-    │   ├── seq.fa
-    │   └── time.txt
-
+    │   └── Topcons
+    │       ├── reliability.final
+    │       ├── reliability.txt
+    │       ├── topcons.gnu
+    │       ├── topcons.large.png
+    │       ├── topcons.png
+    │       ├── topcons.top
+    │       ├── total_image.gnu
+    │       ├── total_image.large.png
+    │       └── total_image.png
+    └── time.txt
     </pre>
 
 
