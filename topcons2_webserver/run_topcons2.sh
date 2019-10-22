@@ -8,7 +8,7 @@ usage="
 usage: $0 -outpath OUTDIR FILE [FILE ...] 
             [--debug] [--tmpdir DIR] [--plot {yes, no}]
 
-Created 2017-12-03, updated 2017-12-11, Nanjiang Shu
+Created 2017-12-03, updated 2019-10-22, Nanjiang Shu
 
 Example:
     # run TOPCONS2 for two sequence files test1.fasta and test2.fasta
@@ -77,4 +77,5 @@ for ((i=0;i<numFile;i++));do
     fi
     echo "$rundir/workflow/pfam_workflow.py $file $outdir $rundir/tools/blast-2.2.26/ $rundir/database/blast/uniref90.fasta $extra_opt"
     $rundir/workflow/pfam_workflow.py $file $outdir $rundir/tools/blast-2.2.26/ $rundir/database/blast/uniref90.fasta $extra_opt
+    python $rundir/workflow/dump_prediction.py $file $outdir $outdir/query.result.txt -orel -odg
 done
