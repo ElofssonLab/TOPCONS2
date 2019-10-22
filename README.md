@@ -90,7 +90,10 @@ peptides. Nucleic Acids Res. 43, W401-W407
     The tree view of all output files will be
 
     <pre>
-    └── one_seq
+    one_seq
+    ├── query.result.txt
+    ├── query.result.txt.fa
+    ├── query.result.txt.unfinished.fa
     ├── seq_0
     │   ├── DG1.txt
     │   ├── dg.txt
@@ -125,6 +128,16 @@ peptides. Nucleic Acids Res. 43, W401-W407
     │       └── total_image.png
     └── time.txt
     </pre>
+
+    * The file `query.result.txt` contains all predictions for the query in text
+    format similar as the example
+    [here](http://topcons.net/static/result/example_1seq/example_1seq/query.result.txt)
+
+    * The file `query.result.txt.fa` contains the consensus prediction for all
+    sequences in the query in FASTA format.
+
+    * The file `query.result.txt.unfinished.fa` contains the sequences that are
+    not successfully predicted by TOPCONS2 (if there are any) in FASTA format.
 
 
 ## Run TOPCONS2 with Docker
