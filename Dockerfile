@@ -25,7 +25,7 @@ RUN apt-get install -y blast2
 #================================
 # Install python package 
 #===============================
-RUN pip install --upgrade pip && pip install biopython==1.70
+RUN pip install --upgrade pip==9 && pip install biopython==1.70
 
 #================================
 #  Add topcons2 source code
