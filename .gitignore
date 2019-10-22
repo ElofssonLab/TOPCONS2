@@ -8,8 +8,6 @@
 bak/
 
 
-
-
 dockerimage/
 topcons2_webserver/database
 topcons2_webserver/predictors/Philius/runPhilius.sh.old
@@ -20,11 +18,12 @@ topcons2_webserver/predictors/source/cmdline/
 topcons2_webserver/predictors/spoctopus/LICENSE
 topcons2_webserver/predictors/spoctopus/README.md
 topcons2_webserver/src/
-topcons2_webserver/test/bad1.fa
+topcons2_webserver/test/bad[0-9].fa
 topcons2_webserver/test/logs/
-topcons2_webserver/test/out2/
-topcons2_webserver/test/out_bad1/
-topcons2_webserver/test/rst1/
+topcons2_webserver/test/out[0-9]
+topcons2_webserver/test/out[0-9].[0-9]
+topcons2_webserver/test/out_bad[0-9]/
+topcons2_webserver/test/rst[0-9]/
 topcons2_webserver/test/rst_topcons2/
 topcons2_webserver/workflow/ChangeLog.txt
 topcons2_webserver/workflow/README.md
@@ -33,10 +32,8 @@ topcons2_webserver/workflow/error.log
 topcons2_webserver/workflow/formatdb.log
 topcons2_webserver/workflow/median.py
 topcons2_webserver/workflow/oldtopcons/
-topcons2_webserver/workflow/test/log1.txt
-topcons2_webserver/workflow/test/log2.err
-topcons2_webserver/workflow/test/out1/
-topcons2_webserver/workflow/test/out2/
-topcons2_webserver/workflow/test/out3/
+topcons2_webserver/workflow/test/log[0-9].txt
+topcons2_webserver/workflow/test/log[0-9].err
+topcons2_webserver/workflow/test/out[0-9]/
 topcons2_webserver/workflow/tmp/
 
