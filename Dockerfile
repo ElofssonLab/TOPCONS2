@@ -67,6 +67,7 @@ RUN /root/perl5/perlbrew/bin/cpanm Moose &&\
 #===============================
 ENV PERL5LIB "/app/topcons2/database/pfam_seq/PfamScan"
 ENV USER_DIRS "/app"
+ENV PATH="/app/topcons2/tools/blast-2.2.26/bin:${PATH}"
 
 RUN rm -rf /app/download
 
