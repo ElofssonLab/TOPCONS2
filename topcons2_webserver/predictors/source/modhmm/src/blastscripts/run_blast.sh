@@ -26,6 +26,6 @@ for seq in $seqs
 do
   seqfile=`ls ${fastadir}/${seq}*`
   echo $seqfile
-  @BLASTALL_EXECUTABLE@ -p blastp -m 6 -F F -e 1.e-5 -i ${seqfile} -d $DATABASE -b 250 > ${outdir}/${seq}.msa
+  @BLASTALL_EXECUTABLE@ -p blastp -m 6 -F F -e 1.e-5 -i ${seqfile} -d $DATABASE -b 500 > ${outdir}/${seq}.msa
 done
 rm -r $workingdir
