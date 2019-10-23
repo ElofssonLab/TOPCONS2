@@ -31,7 +31,7 @@ my $v = 0;
 my $local = 0;
 my $index_file = "";
 my $create_from = "";
-my $maxHsp = 250;
+my $maxHsp = 500;
 my $processors = 4;
 
 =pod
