@@ -205,7 +205,7 @@ You can also run TOPCONS2 with Singularity
 
 2. Pull the Docker image by 
 
-        singularity pull docker://nanjiang/topcons2
+        singularity pull topcons2.img docker://nanjiang/topcons2
 
 3. Suppose you have saved the database at `/data/topcons2_database` and you
    have a user writable folder `/scratch`, then you can run TOPCONS2 with the
