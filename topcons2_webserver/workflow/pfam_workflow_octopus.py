@@ -150,7 +150,7 @@ Examples:
                 rmsg = ""
                 try:
                     print "cmdline: ", cmdline
-                    rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                    rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                 except subprocess.CalledProcessError, e:
                     print "errmsg:", e
                     print "rmsg:", rmsg
@@ -176,7 +176,7 @@ Examples:
                     cmdline = " ".join(cmd)
                     try:
                         print "\ncmdline:",cmdline
-                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                        rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
                         print "errmsg:", e
                         print "rmsg:", rmsg
@@ -204,7 +204,7 @@ Examples:
                     cmdline = " ".join(cmd)
                     try:
                         print "\ncmdline:", cmdline
-                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                        rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
                         print e
                         print rmsg

@@ -130,7 +130,7 @@ def main(g_params):#{{{
     if outpath != "" and not os.path.exists(outpath):
         cmd = ["mkdir","-p",outpath]
         try:
-            subprocess.check_call(cmd)
+            subprocess.check_output(cmd)
         except subprocess.CalledProcessError, e:
             print e
             raise

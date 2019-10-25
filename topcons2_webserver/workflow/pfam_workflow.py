@@ -149,7 +149,7 @@ Examples:
                 rmsg = ""
                 try:
                     print "cmdline: ", cmdline
-                    rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                    rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                 except subprocess.CalledProcessError, e:
                     print "errmsg:", e
                     print "rmsg:", rmsg
@@ -175,7 +175,7 @@ Examples:
                     cmdline = " ".join(cmd)
                     try:
                         print "\ncmdline:",cmdline
-                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                        rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
                         print "errmsg:", e
                         print "rmsg:", rmsg
@@ -203,7 +203,7 @@ Examples:
                     cmdline = " ".join(cmd)
                     try:
                         print "\ncmdline:", cmdline
-                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                        rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                     except subprocess.CalledProcessError, e:
                         print e
                         print rmsg
@@ -321,7 +321,7 @@ Examples:
                 if DEBUG:
                     print "cmdline: cmdline"
                 try:
-                    rmsg = subprocess.check_call(cmd)
+                    rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                 except subprocess.CalledProcessError, e:
                     print >> sys.stderr, str(e)
                     pass
@@ -340,7 +340,7 @@ Examples:
                 cmd = ["perl", script_homology_pred, oneseqfile,
                         pdb_dbfile_fasta, pdb_dbfile_3line, outDir_homopred]
                 try:
-                    rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                    rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                 except subprocess.CalledProcessError, e:
                     cmdline = " ".join(cmd)
                     print "cmdline: %s"%(cmdline)
@@ -382,7 +382,7 @@ Examples:
                 if g_params['isPlot'] == 'yes':
                     cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
                     try:
-                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
+                        rmsg = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
                         print rmsg
                     except subprocess.CalledProcessError, e:
                         print e

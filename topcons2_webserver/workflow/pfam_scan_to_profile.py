@@ -59,8 +59,8 @@ def main(argvs):
     print "cmdline=", cmdline
     rmsg = ""
     try:
-        #rmsg = myfunc.check_call(sCmd, stderr=subprocess.STDOUT)
-        rmsg = subprocess.check_call(sCmd, stderr=subprocess.STDOUT)
+        #rmsg = myfunc.check_output(sCmd, stderr=subprocess.STDOUT)
+        rmsg = subprocess.check_output(sCmd, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError, e:
         print e
         print rmsg
