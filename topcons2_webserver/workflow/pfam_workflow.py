@@ -382,7 +382,7 @@ Examples:
                 if g_params['isPlot'] == 'yes':
                     cmd = ["perl", "create_topcons_plot.pl", outDir + "/"]
                     try:
-                        rmsg = subprocess.check_call(cmd)
+                        rmsg = subprocess.check_call(cmd, stderr=subprocess.STDOUT)
                         print rmsg
                     except subprocess.CalledProcessError, e:
                         print e
