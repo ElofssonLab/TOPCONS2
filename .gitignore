@@ -19,6 +19,7 @@ topcons2_webserver/predictors/spoctopus/LICENSE
 topcons2_webserver/predictors/spoctopus/README.md
 topcons2_webserver/src/
 topcons2_webserver/test/bad[0-9].fa
+topcons2_webserver/test/A0AVT1.fasta
 topcons2_webserver/test/logs/
 topcons2_webserver/test/out[0-9]
 topcons2_webserver/test/out[0-9].[0-9]
