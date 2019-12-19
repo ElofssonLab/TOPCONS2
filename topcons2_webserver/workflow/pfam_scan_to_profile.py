@@ -16,7 +16,7 @@ rundir = os.path.dirname(os.path.realpath(__file__))
 rundir = os.path.dirname(os.path.realpath(__file__))
 pfam_Dir = os.path.realpath("%s/../database/pfam/"%(rundir))
 pfamseqdb_mydb = os.path.realpath("%s/../database/pfamfull/uniref100.pfam27.pfamseq.nr90"%(rundir))
-pfamseqdb_sql = os.path.realpath("%s/../database/pfamfull/pfamfullseqdb.nr100.sqlite3"%(rundir))
+pfamseqdb_sql = os.path.realpath("%s/../database/pfamfull/prodres_db.nr100.sqlite3"%(rundir))
 path_pfamscan = os.path.realpath("%s/../database/pfam_seq/PfamScan/"%(rundir))
 pfamscan_scriptfile = "%s/pfam_scan.pl"%(path_pfamscan)
 try:
