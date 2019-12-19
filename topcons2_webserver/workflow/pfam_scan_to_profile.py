@@ -5,14 +5,17 @@ from random import randrange
 import myfunc
 import subprocess
 from datetime import datetime
+import sqlite3
 
 # modified by Nanjiang 2015-02-06
 rundir = os.path.dirname(os.path.realpath(__file__))
 
 # pfam_Dir = "../../pfam"
 # pfamseqdb = "../database/pfamfull/uniref100.pfam27.pfamseq.nr90"
+rundir = os.path.dirname(os.path.realpath(__file__))
 pfam_Dir = "%s/../database/pfam/"%(rundir)
-pfamseqdb = "%s/../database/pfamfull/uniref100.pfam27.pfamseq.nr90"%(rundir)
+pfamseqdb_mydb = "%s/../database/pfamfull/uniref100.pfam27.pfamseq.nr90"%(rundir)
+pfamseqdb_sql = "%s/../database/pfamfull/pfamfullseqdb.nr100.sqlite3"%(rundir)
 path_pfamscan = "%s/../database/pfam_seq/PfamScan/"%(rundir)
 pfamscan_scriptfile = "%s/pfam_scan.pl"%(path_pfamscan)
 try:
@@ -23,21 +26,50 @@ except KeyError:
 
 # sys.path.append("/usr/local/bin") #added by Nanjiang
 
-def createHitDB(pfamList, prot_name, work_dir):
+def createHitDB_sql(pfamList, prot_name, work_dir, pfamseqdb):# {{{
+    """Create the blast seqdb from pfam_scan hits, using the sqlite3 version of pfamfullseqdb"""
+    outfile_seqdb =  os.path.join(work_dir, prot_name + ".hits.db.temp")
+    with open(outfile_seqdb, "w") as fpout:
+        tablename = "db"
+        con = sqlite3.connect(pfamseqdb)
+        with con:
+            cur = con.cursor()
+            seqidset = set([])
+            for pfamid in pfamList:
+                cmd = "SELECT Seq FROM %s WHERE AC = \"%s\""%(tablename, pfamid)
+                cur.execute(cmd)
+                rows = cur.fetchall()
+                for row in rows:
+                    seqdict = json.loads(row[0])
+                    for seqid in seqdict:
+                        if not seqid in seqidset:
+                            seqidset.add(seqid)
+                            fpout.write(">%s\n%s\n"%(seqdict[seqid][0],seqdict[seqid][1]))
+    os.system("python my_uniqueseq.py " + outfile_seqdb)
+# }}}
+def createHitDB_mydb(pfamList, prot_name, work_dir, pfamseqdb):# {{{
+    """Create the blast seqdb from pfam_scan hits, using the MyDB version of pfamfullseqdb"""
+    outfile_seqdb =  os.path.join(work_dir, prot_name + ".hits.db.temp")
     hdl = myfunc.MyDB(pfamseqdb)
     if hdl.failure:
-        print "Error"
+        print("Failed to open pfamseqdb %s with MyDB()"%(pfamseqdb))
         return 1
-    with open(work_dir + prot_name + ".hits.db.temp", "w") as outFile:
+    with open(outfile_seqdb, "w") as outFile:
         for pfamid in pfamList:
             record = hdl.GetRecord(pfamid)
             if record:
                 outFile.write(record)
         hdl.close()
 
-    os.system("python my_uniqueseq.py " + work_dir + prot_name + ".hits.db.temp")
-
-rundir = os.path.dirname(os.path.realpath(__file__))
+    os.system("python my_uniqueseq.py " + outfile_seqdb)
+# }}}
+def createHitDB(pfamList, prot_name, work_dir):# {{{
+    """Create seqdb for blast from pfam_scan hits"""
+    if os.path.exists(pfamseqdb_sql):
+        createHitDB_sql(pfamList, prot_name, work_dir, pfamseqdb_sql)
+    elif os.path.exists(pfamseqdb_mydb+'.indexbin'):
+        createHitDB_mydb(pfamList, prot_name, work_dir, pfamseqdb_mydb)
+# }}}
 
 def main(argvs):
     try:
