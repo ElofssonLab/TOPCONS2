@@ -26,13 +26,13 @@ $blastdir/bin/blastpgp -j 2 -i ${infile_path}.fa -d ${infile_path}.hits.db -e 1.
 
 MAKEMAT=$blastdir/bin/makemat
 
-/bin/mkdir $tmpdir/PSIBLAST_FILES
-/bin/mkdir $tmpdir/BLAST_FILES
+/bin/mkdir -p $tmpdir/PSIBLAST_FILES
+/bin/mkdir -p $tmpdir/BLAST_FILES
 
-/bin/mkdir $tmpdir/RAW_PRF_FILES
-/bin/mkdir $tmpdir/PSSM_PRF_FILES
+/bin/mkdir -p $tmpdir/RAW_PRF_FILES
+/bin/mkdir -p $tmpdir/PSSM_PRF_FILES
 
-/bin/mkdir $tmpdir/CHECK_FILES
+/bin/mkdir -p $tmpdir/CHECK_FILES
 
 /bin/cp ${infile_path}.fa  $tmpdir/CHECK_FILES/query.chd
 /bin/cp ${infile_path}.fa  $tmpdir/query.seq

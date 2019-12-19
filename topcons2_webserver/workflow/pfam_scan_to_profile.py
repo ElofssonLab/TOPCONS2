@@ -6,6 +6,7 @@ import myfunc
 import subprocess
 from datetime import datetime
 import sqlite3
+import json
 
 # modified by Nanjiang 2015-02-06
 rundir = os.path.dirname(os.path.realpath(__file__))
@@ -13,10 +14,10 @@ rundir = os.path.dirname(os.path.realpath(__file__))
 # pfam_Dir = "../../pfam"
 # pfamseqdb = "../database/pfamfull/uniref100.pfam27.pfamseq.nr90"
 rundir = os.path.dirname(os.path.realpath(__file__))
-pfam_Dir = "%s/../database/pfam/"%(rundir)
-pfamseqdb_mydb = "%s/../database/pfamfull/uniref100.pfam27.pfamseq.nr90"%(rundir)
-pfamseqdb_sql = "%s/../database/pfamfull/pfamfullseqdb.nr100.sqlite3"%(rundir)
-path_pfamscan = "%s/../database/pfam_seq/PfamScan/"%(rundir)
+pfam_Dir = os.path.realpath("%s/../database/pfam/"%(rundir))
+pfamseqdb_mydb = os.path.realpath("%s/../database/pfamfull/uniref100.pfam27.pfamseq.nr90"%(rundir))
+pfamseqdb_sql = os.path.realpath("%s/../database/pfamfull/pfamfullseqdb.nr100.sqlite3"%(rundir))
+path_pfamscan = os.path.realpath("%s/../database/pfam_seq/PfamScan/"%(rundir))
 pfamscan_scriptfile = "%s/pfam_scan.pl"%(path_pfamscan)
 try:
     perl5lib = os.environ['PERL5LIB']
@@ -91,11 +92,10 @@ def main(argvs):
     print "cmdline=", cmdline
     rmsg = ""
     try:
-        #rmsg = myfunc.check_output(sCmd, stderr=subprocess.STDOUT)
         rmsg = subprocess.check_output(sCmd, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError, e:
-        print e
-        print rmsg
+    except subprocess.CalledProcessError as e:
+        print ('Run pfam_scan failed with error message: <%s>'%(str(e)))
+        print ('Run pfam_scan failed, the stdout message is: <%s> '%(str(rmsg)))
 
 #     os.system(sCmd)
 #     os.chdir(startDir)
