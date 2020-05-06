@@ -77,17 +77,17 @@ peptides. Nucleic Acids Res. 43, W401-W407
    change to the folder `topcons2_webserver/test`
    and run the following commands 
 
-        ../workflow/pfam_workflow.py one_seq.fasta rst1 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+        ../run_topcons2.sh one_seq.fasta -outpath rst_one_seq
 
-        ../workflow/pfam_workflow.py multiple_seqs.fasta rst2 ../tools/blast-2.2.26/ ../database/blast/uniref90.fasta
+        ../run_topcons2.sh multiple_seqs.fasta -outpath rst_multiple_seqs
 
    The example results can be found in the folder `rst_one_seq` and
    `rst_multiple_seqs` for the example fasta file `one_seq.fasta` and
    `multiple_seqs.fasta` respectively.
 
 * Description of the output results
-    If the input contains one sequence and the out_path is "one_seq"
-    The tree view of all output files will be
+    If the input is `one_seq.fasta` and the outpath is `rst_one_seq`
+    The tree view of all output files under the folder `rst_one_seq` is
 
     <pre>
     one_seq
