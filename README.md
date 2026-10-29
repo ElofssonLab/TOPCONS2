@@ -22,13 +22,48 @@ Tsirigos, K.D., Peters, C., Shu, N., Kall, L., Elofsson, A., 2015. The TOPCONS
 web server for consensus prediction of membrane protein topology and signal
 peptides. Nucleic Acids Res. 43, W401-W407
 
+## Quick start (recommended): Singularity/Apptainer
+
+The ready-made image contains TOPCONS2 with all its dependencies, so nothing
+but the database needs to be installed. This works on any Linux with
+Singularity/Apptainer (or Docker), including older systems such as CentOS 7.
+
+1. Download the database (93 GB; unpacked 211 GB, so about 300 GB free disk
+   space is needed while unpacking) and check it:
+
+        wget -c http://topcons.net/static/download/topcons2_database.zip
+        wget http://topcons.net/static/download/topcons2_database.zip.md5
+        md5sum -c topcons2_database.zip.md5
+        unzip topcons2_database.zip -d /data    # gives /data/topcons2_database
+        rm topcons2_database.zip
+
+   `wget -c` resumes an interrupted download. This database is from
+   2024-05-17 (Pfam 36.0, UniProt 2022_05) and includes the BLAST databases,
+   so `install_blastdb.sh` is not needed.
+
+2. Run TOPCONS2 on your sequences (FASTA), with results in a folder you can
+   write to, here `/scratch`:
+
+   With Singularity/Apptainer (no root needed; `apptainer` works the same):
+
+        singularity pull topcons2.img docker://nanjiang/topcons2
+        singularity exec -B /data:/data -B /scratch:/scratch topcons2.img \
+            /app/topcons2/run_topcons2.sh /scratch/yourseq.fasta -outpath /scratch/rst_yourseq
+
+   The predictions are in `/scratch/rst_yourseq` (see the description of the
+   output files below). With Docker, see "Run TOPCONS2 with Docker" below.
+
+The sections below describe a manual installation and more Docker and
+Singularity options.
+
 ## Installation and usage:
 
 1. Check out the software from the github by
 
         git clone https://github.com/ElofssonLab/TOPCONS2
 
-2. Download the database for TOPCONS2 from
+2. Download the database for TOPCONS2 (93 GB, unpacked 211 GB; see the quick
+   start above for checking and resuming the download) from
     http://topcons.net/static/download/topcons2_database.zip
    and unzip it by 
 
@@ -39,7 +74,8 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
         ln -s /path/to/the/downloaded/database database
 
-    You may need to update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
+    The current database (2024-05-17) includes the BLAST databases. Only with
+    an older database you may need to update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
 
 
         ./install_blastdb.sh database
@@ -150,7 +186,8 @@ peptides. Nucleic Acids Res. 43, W401-W407
 
     and saved as `/data/topcons2_database`
 
-    Update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
+    The current database (2024-05-17) includes the BLAST databases. Only with
+    an older database, update the BLAST database for uniref90 by the script [install_blastdb.sh](topcons2_webserver/install_blastdb.sh) with the following command:
 
         ./install_blastdb.sh /data/topcons2_database/blast
 
